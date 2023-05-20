@@ -45,8 +45,8 @@
                                 </div>
                             </div>
                             <div class="header-main__cart">
+                                <?php estore_woocommerce_cart_link();?>
                                 <div class="cart">
-                                    <a href="" class="cart__icon icon-cart _hover"></a>
                                     <div class="cart__body">
                                         <div class="cart__up">
                                             <div class="cart__title subtitle">КОРЗИНА</div>
@@ -59,8 +59,7 @@
                                                 <span id="total">1999 uah.</span>
                                             </div>
                                             <a href="cart.html" class="cart__goto text _button">ПЕРЕЙТИ В КОРЗИНУ</a>
-                                            <div class="cart__info smalltext">доставка рассчитывается при оформлении
-                                                заказа</div>
+                                            <div class="cart__info smalltext">доставка рассчитывается при оформлении заказа</div>
                                         </div>
                                     </div>
                                 </div>
