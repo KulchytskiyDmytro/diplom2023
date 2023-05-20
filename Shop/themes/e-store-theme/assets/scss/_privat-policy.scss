@@ -1,0 +1,95 @@
+// Colors
+$scroll-color: #6c6c6c;
+
+.pp {
+    &__container {
+    }
+    &__text {
+        padding: 3.5vw 0; //------------------------------------------------------------- padding
+    }
+}
+
+.text__privatpolicy {
+    @media (min-width: 767px) {
+        padding-right: 20px;
+        max-height: 448px;
+        overflow: auto;
+        scroll-snap-type: y proximity;
+        //
+        width: 1200 / $container * 100%;
+        margin: 0 auto; //------------------------------------------------------------- margin
+    }
+    @media (max-width: 767px) {
+        overflow: visible;
+        padding: 0 15px;
+    }
+}
+
+// /* width */
+// .text::-webkit-scrollbar {
+//     width: 2px;
+// }
+// /* Track */
+// .text::-webkit-scrollbar-track {
+//     box-shadow: inset 0 0 5px grey;
+//     border-radius: 10px;
+//     -webkit-border-radius: 10px;
+//     -moz-border-radius: 10px;
+//     -ms-border-radius: 10px;
+//     -o-border-radius: 10px;
+// }
+// // the part of the track (progress bar) not covered by the handle.
+// // ::-webkit-scrollbar-track-piece {
+// // }
+// /* Handle */
+// .text::-webkit-scrollbar-thumb {
+//     background: $scroll-color;
+//     border-radius: 10px;
+//     -webkit-border-radius: 10px;
+//     -moz-border-radius: 10px;
+//     -ms-border-radius: 10px;
+//     -o-border-radius: 10px;
+// }
+// /* Handle on hover */
+// .text::-webkit-scrollbar-thumb:hover {
+//     background: $scroll-color;
+//     // background: url("../img/favicon/Mona\ lisa.ico");
+// }
+// the buttons on the scrollbar (arrows pointing upwards and downwards that scroll one line at a time).
+// ::-webkit-scrollbar-button {
+// background: url("../img/favicon/Mona\ lisa.ico");
+// }
+// the bottom corner of the scrollbar, where both horizontal and vertical scrollbars meet This is often the bottom-right corner of the browser window.
+// ::-webkit-scrollbar-corner {
+// }
+//  the draggable resizing handle that appears at the bottom corner of some elements.
+// ::-webkit-resizer {
+// }
+
+//================================================================================================================
+/* Track */
+.text__privatpolicy::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+/* Handle */
+.text__privatpolicy::-webkit-scrollbar-thumb {
+    background: $scroll-color;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+/* Handle on hover */
+.text__privatpolicy::-webkit-scrollbar-thumb:hover {
+    background: $scroll-color;
+    // background: url("../img/favicon/Mona\ lisa.ico");
+}
+.text__privatpolicy::-webkit-scrollbar {
+    width: 2px;
+}
