@@ -10,20 +10,24 @@ function estore_register_custom_fields() {
 	require get_template_directory() . '/includes/custom-fields-options/metabox.php';
 	require get_template_directory() . '/includes/custom-fields-options/theme-optons.php';
 }
+
+//
+require get_template_directory() . '/includes/ajax.php';
+
 /*
- * Подключение настроек темы
+ * themes
  */
 require get_template_directory() . '/includes/theme-settings.php';
 /*
- * Подключение области виджетов
+ * widgets
  */
 require get_template_directory() . '/includes/widget-areas.php';
 /*
- * Подключение скриптов и стилей
+ * Scrips and stypes
  */
 require get_template_directory() . '/includes/enqueue-script-style.php';
 /*
- * Вспомогательные функции
+ * functions add
  */
 require get_template_directory() . '/includes/helpers.php';
 

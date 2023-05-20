@@ -22,6 +22,14 @@ function estore_styles() {
 	wp_enqueue_script( 'estore-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
 	
 
+	// connect ajax search 
+	wp_enqueue_script('ajax-search' , get_template_directory_uri() . '/assets/js/ajax-search.js', array('jquery'), null, true);
+	wp_localize_script('ajax-search', 'search_form' , array( // load after script is loaded, name of obj
+		'url' => admin_url( 'admin-ajax.php' ), 	// get link
+		'nonce' => wp_create_nonce('search-nonce') // spam check
+	));
+
+
 	// connect our js scripts that are in assets/js
 	wp_enqueue_script('bootstrap-script' ,  'https://unpkg.com/swiper@7/swiper-bundle.min.js', array(), null, true);
 	wp_enqueue_script('define-device' , get_template_directory_uri() . '/assets/js/define-device.js', array(), null, true);

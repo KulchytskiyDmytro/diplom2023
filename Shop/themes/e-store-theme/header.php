@@ -33,12 +33,15 @@
                     <div class="header-main__body">
                         <div class="header-main__right">
                             <div class="header-main__search">
-                                <div class="search">
-                                    <form class="search__form" action="#" class="">
+                                <div class="search search_form">
+                                    <form class="search__form" method="post" action="<?php esc_url( home_url( '/' ) );?>" > 
                                         <button type="button" class="search__icon icon-search "></button>
-                                        <input class="search__input text" type="text" placeholder="Перчатки для бокса"
-                                            autocomplete="off" name="form">
+                                        <input class="search__input text" type="text" value="<?php get_search_query();?>" name="s" placeholder="Пошук"
+                                            autocomplete="off">    
                                     </form>
+                                    <div class="search__result">
+                                        
+                                    </div>
                                 </div>
                             </div>
                             <div class="header-main__cart">
