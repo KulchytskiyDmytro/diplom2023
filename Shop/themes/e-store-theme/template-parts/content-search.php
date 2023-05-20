@@ -15,15 +15,10 @@
 
 		<?php if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php
-			estore_posted_on();
-			estore_posted_by();
-			?>
+			<?php estore_posted_on(); ?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
-
-	<?php estore_post_thumbnail(); ?>
 
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>
