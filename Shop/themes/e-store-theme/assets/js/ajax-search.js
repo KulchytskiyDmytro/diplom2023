@@ -1,7 +1,7 @@
 jQuery(function ($) {
     $('.search_form input[name="s"]').on('keyup', function () { // get value in input with a name s,  add event pressing key buttons
         var search = $('.search_form input[name="s"]').val(); // get value of search
-        if (search.length < 3) { // enable script if there is more than 3 chars 
+        if (search.length < 1) { // enable script if there is more than 1 chars 
             return false;
         }
         var data = {    // collect values which are needed to be trasmited 
@@ -18,8 +18,8 @@ jQuery(function ($) {
             }, 
             success:function(data){ // successful sending case 
                 $('.search_form .search__result').html(data.out); // search value
-                var heightResilt = $('.search_form .search__result').height(); // chage height
-                $('.search_form').css('height', heightResilt);
+                // var heightResilt = $('.search_form .search__result').height(); // chage height
+                // $('.search_form .search__result').css('height', heightResilt);
                 //.log($('.search_form .search-result').height());
             }
         });

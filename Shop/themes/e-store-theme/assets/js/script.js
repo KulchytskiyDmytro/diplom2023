@@ -153,49 +153,49 @@ window.onload = function () {
       // 
       // ===========add to cart  
       // when click in buy botton in PRODUCT PAGE
-      if (targetElement.classList.contains('buy-button') && targetElement.closest('.content')) {
-         const productId = targetElement.closest('.content').dataset.prodid; //get info of the prodid
-         addToCart(targetElement, productId); // run function
-         e.preventDefault(); //unable link 
-      }
+               // if (targetElement.classList.contains('buy-button') && targetElement.closest('.content')) {
+               //    const productId = targetElement.closest('.content').dataset.prodid; //get info of the prodid
+               //    addToCart(targetElement, productId); // run function
+               //    e.preventDefault(); //unable link 
+               // }
       //
       // add to cart function when click in buy button in INDEX.HTML
-      if (targetElement.classList.contains('buy-button') && targetElement.closest('.product-card')) {
-         const productId = targetElement.closest('.product-card').dataset.prodid; //get info of the prodid
-         addToCartMAIN(targetElement, productId); // run function
-         e.preventDefault(); //unable link 
-      }
+               // if (targetElement.classList.contains('buy-button') && targetElement.closest('.product-card')) {
+               //    const productId = targetElement.closest('.product-card').dataset.prodid; //get info of the prodid
+               //    addToCartMAIN(targetElement, productId); // run function
+               //    e.preventDefault(); //unable link 
+               // }
       //
       //add class active when click on cart and remove when click anywhere else.
-      if (targetElement.classList.contains("cart__icon") || targetElement.closest('.cart__icon')) {
-         if (document.querySelector('.cart-list').children.length > 0) {
-            document.querySelector('.cart').classList.toggle('_active');
-         }
-         e.preventDefault();
-      } else if (!targetElement.closest('.cart') && !targetElement.classList.contains('buy-button')) {
-         document.querySelector('.cart').classList.remove('_active');
-      }
+               // if (targetElement.classList.contains("cart__icon") || targetElement.closest('.cart__icon')) {
+               //    if (document.querySelector('.cart-list').children.length > 0) {
+               //       document.querySelector('.cart').classList.toggle('_active');
+               //    }
+               //    e.preventDefault();
+               // } else if (!targetElement.closest('.cart') && !targetElement.classList.contains('buy-button')) {
+               //    document.querySelector('.cart').classList.remove('_active');
+               // }
       //
       // ========  counter 
       // push the increase button to add 
-      if (targetElement.classList.contains('cart-list__quantity-decrease')) {
-         const productId = targetElement.closest('.cart-list__item').dataset.cartProdid; // camelCase !important
-         // e.preventDefault();
-         updateCart(targetElement, productId, false);
-      }
-      if (targetElement.classList.contains('cart-list__quantity-increase')) {
-         const productId = targetElement.closest('.cart-list__item').dataset.cartProdid; // camelCase !important
-         // e.preventDefault();
-         updateCart(targetElement, productId, true);
-      }
+               // if (targetElement.classList.contains('cart-list__quantity-decrease')) {
+               //    const productId = targetElement.closest('.cart-list__item').dataset.cartProdid; // camelCase !important
+               //    // e.preventDefault();
+               //    updateCart(targetElement, productId, false);
+               // }
+               // if (targetElement.classList.contains('cart-list__quantity-increase')) {
+               //    const productId = targetElement.closest('.cart-list__item').dataset.cartProdid; // camelCase !important
+               //    // e.preventDefault();
+               //    updateCart(targetElement, productId, true);
+               // }
       //
       //===================remove all
       //remove + down
-      if (targetElement.classList.contains('cart-list__delete')) {
-         const productId = targetElement.closest('.cart-list__item').dataset.cartProdid; // camelCase !important
-         e.preventDefault();
-         updateCart2(targetElement, productId, false);
-      }
+               // if (targetElement.classList.contains('cart-list__delete')) {
+               //    const productId = targetElement.closest('.cart-list__item').dataset.cartProdid; // camelCase !important
+               //    e.preventDefault();
+               //    updateCart2(targetElement, productId, false);
+               // }
       //===========================================================================
    }
    ///===============================================
@@ -204,279 +204,279 @@ window.onload = function () {
    ///===============================================
    ///===============================================
    //==========fly script
-   function addToCart(productButton, productId) {
-      if (!productButton.classList.contains('_hold')) { //if target element dont have hold
-         productButton.classList.add('_hold'); //add hold
-         productButton.classList.add('_fly'); //add fly class
+               //    function addToCart(productButton, productId) {
+               //       if (!productButton.classList.contains('_hold')) { //if target element dont have hold
+               //          productButton.classList.add('_hold'); //add hold
+               //          productButton.classList.add('_fly'); //add fly class
 
-         const cart = document.querySelector('.cart__icon');
-         const product = document.querySelector(`[data-prodid="${productId}"]`);
-         const productImage = product.querySelector('.submain-photo__image');
-         const buybutton = product.querySelector('.buy-button');
+               //          const cart = document.querySelector('.cart__icon');
+               //          const product = document.querySelector(`[data-prodid="${productId}"]`);
+               //          const productImage = product.querySelector('.submain-photo__image');
+               //          const buybutton = product.querySelector('.buy-button');
 
-         const productImageFly = productImage.cloneNode(true); // clone product image submain-photo_iage (you can clone any div)
-         const productImageFlyWidth = productImage.offsetWidth; // get width of image in submain-photo_image
-         const productImageFlyHeight = productImage.offsetHeight; // get height in submain-photo_image
-         const productImageFlyTop = buybutton.getBoundingClientRect().top; // get top of the button
-         const productImageFlyLeft = buybutton.getBoundingClientRect().left; // get left of the button
-
-
-         //===========fly script
-         productImageFly.setAttribute('class', '_flyImage IEimg'); // add to clone element class and style it in _cart.scss
-         productImageFly.style.cssText = `
-      left: ${productImageFlyLeft}px;
-      top: ${productImageFlyTop}px;
-      width: ${productImageFlyWidth}px;
-      height: ${productImageFlyHeight}px;
-      `; // add css property 
-
-         document.body.append(productImageFly);  // show this clone in the end of body 
-
-         const cartFlyLeft = cart.getBoundingClientRect().left; //get cordinates of the cart
-         const cartFlyTop = cart.getBoundingClientRect().top;
-         productImageFly.style.cssText = `
-         left: ${cartFlyLeft}px;
-         top: ${cartFlyTop}px;
-         width: 0px;
-         height: 0px;
-         opacity: 0;
-         `; // sent clone to other cordinates. transiton is in _cart.scss
-
-         // remove clone
-         productImageFly.addEventListener('transitionend', function () { //when transition end
-            if (productButton.classList.contains('_fly')) { // if element clicked contains fly
-               productImageFly.remove();//remove clone
-               updateCart(productButton, productId); // functioin that get element in cart
-               productButton.classList.remove('_fly') // remove
-            }
-         })
-      }
-
-      ///===========if you want to add without fly animation left only this
-      // updateCart(productButton, productId); // functioin that get element in cart
-   }
-   function updateCart(productButton, productId, productAdd = true) {
-      const cart = document.querySelector('.cart');
-      const cartIcon = cart.querySelector('.cart__icon');
-      const cartQuantity = cartIcon.querySelector('span');
-      const cartProduct = document.querySelector(`[data-cart-prodid="${productId}"]`);
-      const cartList = document.querySelector('.cart-list');
-
-      //============add products buy clicking on buy button
-      if (productAdd) { // if true
-         if (cartQuantity) { // if there is span descrese its on 1
-            cartQuantity.innerHTML = ++cartQuantity.innerHTML; // ++
-         } else { // if not add this
-            cartIcon.insertAdjacentHTML('beforeend', `<span>1</span>`);
-         }
-         // add list of products.
-         if (!cartProduct) { // if product isn't added form this
-            const product = document.querySelector(`[data-prodid="${productId}"]`);
-            const cartProductImage = product.querySelector('.submain-photo__image').innerHTML; // get phote from this productID
-            const cartProductTitle = product.querySelector('.buy__title').innerHTML; // get title
-            const cartProductPrice = product.querySelector('.buy__price').innerHTML;
-            //form a html code which we will add to cart
-            const cartProductContent = `
-            <a href="" class="cart-list__image IEimg">${cartProductImage}</a>
-            <div class="cart-list__body">
-               <a href="" class="cart-list__title">${cartProductTitle}</a>
-               <div class="cart-list__forms">
-                  <div class="cart-list__form-color"> black </div>
-                  <div class="cart-list__form-size"> S </div>
-               </div>
-               <div class="cart-list__price"> ${cartProductPrice} </div>
-               <div class="cart-list__bottom"> 
-                  <div class="cart-list__quantity">
-                     <button class="cart-list__quantity-decrease cart-list__quantity-button">-</button> 
-                     <span>1</span>
-                     <button class="cart-list__quantity-increase cart-list__quantity-button">+</button>
-                  </div>
-                  <a href="" class="cart-list__delete">удалить</a>
-               </div>
-            </div>
-            `;
-            // integrate to html. create li with id and class and put there a cartProductContent;
-            // <li data-cart-prodid="${productId}" class="cart-list__item">${cartProductContent}</li>
-            cartList.insertAdjacentHTML('beforeend', `<li data-cart-prodid="${productId}" class="cart-list__item">${cartProductContent}</li>`)
-         }
-         else { //if this product is in cart do this
-            const cartProductQuantity = cartProduct.querySelector('.cart-list__quantity span'); // get cart list 
-            cartProductQuantity.innerHTML = ++cartProductQuantity.innerHTML; // increase to 1 
-         }
-
-         // remove hold to add new 
-         productButton.classList.remove('_hold');
-      }
-      //=================remove products buy clicking on remove button. 
-      else {
-         const cartProductQuantity = cartProduct.querySelector('.cart-list__quantity span'); // get cart list
-         cartProductQuantity.innerHTML = --cartProductQuantity.innerHTML; //decrease in one counttity of product 
-         if (!parseInt(cartProductQuantity.innerHTML)) { // if span = 0 
-            cartProduct.remove(); // delate this prod
-         }
-
-         const cartQuantityValue = --cartQuantity.innerHTML; //decrease on one all quantity of prod 
-
-         if (cartQuantityValue) { // if it's bigget than 0 chanhe span value
-            cartQuantity.innerHTML = cartQuantityValue;
-         } else {
-            cartQuantity.remove();
-            cart.classList.remove('_active');
-         }
-      }
-   }
-   ///===============================================
-   ///===============================================
-   ///==============================add in main index.html==========
-   ///===============================================
-   function addToCartMAIN(productButton, productId) {
-      if (!productButton.classList.contains('_hold')) { //if target element dont have hold
-         productButton.classList.add('_hold'); //add hold
-         productButton.classList.add('_fly'); //add fly class
-
-         const cart = document.querySelector('.cart__icon');
-         const product = document.querySelector(`[data-prodid="${productId}"]`);
-         const productImage = product.querySelector('.product-card__image');
-         const buybutton = product.querySelector('.buy-button');
-
-         const productImageFly = productImage.cloneNode(true); // clone product image submain-photo_iage (you can clone any div)
-         const productImageFlyWidth = productImage.offsetWidth; // get width of image in submain-photo_image
-         const productImageFlyHeight = productImage.offsetHeight; // get height in submain-photo_image
-         const productImageFlyTop = productImage.getBoundingClientRect().top; // get top of the button
-         const productImageFlyLeft = productImage.getBoundingClientRect().left; // get left of the button
+               //          const productImageFly = productImage.cloneNode(true); // clone product image submain-photo_iage (you can clone any div)
+               //          const productImageFlyWidth = productImage.offsetWidth; // get width of image in submain-photo_image
+               //          const productImageFlyHeight = productImage.offsetHeight; // get height in submain-photo_image
+               //          const productImageFlyTop = buybutton.getBoundingClientRect().top; // get top of the button
+               //          const productImageFlyLeft = buybutton.getBoundingClientRect().left; // get left of the button
 
 
-         //===========fly script
-         productImageFly.setAttribute('class', '_flyImage IEimg'); // add to clone element class and style it in _cart.scss
-         productImageFly.style.cssText = `
-      left: ${productImageFlyLeft}px;
-      top: ${productImageFlyTop}px;
-      width: ${productImageFlyWidth}px;
-      height: ${productImageFlyHeight}px;
-      `; // add css property 
+               //          //===========fly script
+               //          productImageFly.setAttribute('class', '_flyImage IEimg'); // add to clone element class and style it in _cart.scss
+               //          productImageFly.style.cssText = `
+               //       left: ${productImageFlyLeft}px;
+               //       top: ${productImageFlyTop}px;
+               //       width: ${productImageFlyWidth}px;
+               //       height: ${productImageFlyHeight}px;
+               //       `; // add css property 
 
-         document.body.append(productImageFly);  // show this clone in the end of body 
+               //          document.body.append(productImageFly);  // show this clone in the end of body 
 
-         const cartFlyLeft = cart.getBoundingClientRect().left; //get cordinates of the cart
-         const cartFlyTop = cart.getBoundingClientRect().top;
-         productImageFly.style.cssText = `
-         left: ${cartFlyLeft}px;
-         top: ${cartFlyTop}px;
-         width: 0px;
-         height: 0px;
-         opacity: 0;
-         `; // sent clone to other cordinates. transiton is in _cart.scss
+               //          const cartFlyLeft = cart.getBoundingClientRect().left; //get cordinates of the cart
+               //          const cartFlyTop = cart.getBoundingClientRect().top;
+               //          productImageFly.style.cssText = `
+               //          left: ${cartFlyLeft}px;
+               //          top: ${cartFlyTop}px;
+               //          width: 0px;
+               //          height: 0px;
+               //          opacity: 0;
+               //          `; // sent clone to other cordinates. transiton is in _cart.scss
 
-         // remove clone
-         productImageFly.addEventListener('transitionend', function () { //when transition end
-            if (productButton.classList.contains('_fly')) { // if element clicked contains fly
-               productImageFly.remove();//remove clone
-               updateCartMAIN(productButton, productId); // functioin that get element in cart
-               productButton.classList.remove('_fly') // remove
-            }
-         })
-      }
+               //          // remove clone
+               //          productImageFly.addEventListener('transitionend', function () { //when transition end
+               //             if (productButton.classList.contains('_fly')) { // if element clicked contains fly
+               //                productImageFly.remove();//remove clone
+               //                updateCart(productButton, productId); // functioin that get element in cart
+               //                productButton.classList.remove('_fly') // remove
+               //             }
+               //          })
+               //       }
 
-      ///===========if you want to add without fly animation left only this
-      // updateCart(productButton, productId); // functioin that get element in cart
-   }
-   function updateCartMAIN(productButton, productId, productAdd = true) {
-      const cart = document.querySelector('.cart');
-      const cartIcon = cart.querySelector('.cart__icon');
-      const cartQuantity = cartIcon.querySelector('span');
-      const cartProduct = document.querySelector(`[data-cart-prodid="${productId}"]`);
-      const cartList = document.querySelector('.cart-list');
+               //       ///===========if you want to add without fly animation left only this
+               //       // updateCart(productButton, productId); // functioin that get element in cart
+               //    }
+               //    function updateCart(productButton, productId, productAdd = true) {
+               //       const cart = document.querySelector('.cart');
+               //       const cartIcon = cart.querySelector('.cart__icon');
+               //       const cartQuantity = cartIcon.querySelector('span');
+               //       const cartProduct = document.querySelector(`[data-cart-prodid="${productId}"]`);
+               //       const cartList = document.querySelector('.cart-list');
 
-      //============add products buy clicking on buy button
-      if (productAdd) { // if true
-         if (cartQuantity) { // if there is span descrese its on 1
-            cartQuantity.innerHTML = ++cartQuantity.innerHTML; // ++
-         } else { // if not add this
-            cartIcon.insertAdjacentHTML('beforeend', `<span>1</span>`);
-         }
-         // add list of products.
-         if (!cartProduct) { // if product isn't added form this
-            const product = document.querySelector(`[data-prodid="${productId}"]`);
-            const cartProductImage = product.querySelector('.product-card__image').innerHTML; // get phote from this productID
-            const cartProductTitle = product.querySelector('.product-card__title').innerHTML; // get title
-            const cartProductPrice = product.querySelector('.product-card__price').innerHTML;
-            //form a html code which we will add to cart
-            const cartProductContent = `
-            <a href="" class="cart-list__image IEimg">${cartProductImage}</a>
-            <div class="cart-list__body">
-               <a href="" class="cart-list__title">${cartProductTitle}</a>
-               <div class="cart-list__forms">
-                  <div class="cart-list__form-color"> black </div>
-                  <div class="cart-list__form-size"> S </div>
-               </div>
-               <div class="cart-list__price"> ${cartProductPrice} </div>
-               <div class="cart-list__bottom"> 
-                  <div class="cart-list__quantity">
-                     <button class="cart-list__quantity-decrease cart-list__quantity-button">-</button> 
-                     <span>1</span>
-                     <button class="cart-list__quantity-increase cart-list__quantity-button">+</button>
-                  </div>
-                  <a href="" class="cart-list__delete">удалить</a>
-               </div>
-            </div>
-            `;
-            // integrate to html. create li with id and class and put there a cartProductContent;
-            // <li data-cart-prodid="${productId}" class="cart-list__item">${cartProductContent}</li>
-            cartList.insertAdjacentHTML('beforeend', `<li data-cart-prodid="${productId}" class="cart-list__item">${cartProductContent}</li>`)
-         }
-         else { //if this product is in cart do this
-            const cartProductQuantity = cartProduct.querySelector('.cart-list__quantity span'); // get cart list 
-            cartProductQuantity.innerHTML = ++cartProductQuantity.innerHTML; // increase to 1 
-         }
+               //       //============add products buy clicking on buy button
+               //       if (productAdd) { // if true
+               //          if (cartQuantity) { // if there is span descrese its on 1
+               //             cartQuantity.innerHTML = ++cartQuantity.innerHTML; // ++
+               //          } else { // if not add this
+               //             cartIcon.insertAdjacentHTML('beforeend', `<span>1</span>`);
+               //          }
+               //          // add list of products.
+               //          if (!cartProduct) { // if product isn't added form this
+               //             const product = document.querySelector(`[data-prodid="${productId}"]`);
+               //             const cartProductImage = product.querySelector('.submain-photo__image').innerHTML; // get phote from this productID
+               //             const cartProductTitle = product.querySelector('.buy__title').innerHTML; // get title
+               //             const cartProductPrice = product.querySelector('.buy__price').innerHTML;
+               //             //form a html code which we will add to cart
+               //             const cartProductContent = `
+               //             <a href="" class="cart-list__image IEimg">${cartProductImage}</a>
+               //             <div class="cart-list__body">
+               //                <a href="" class="cart-list__title">${cartProductTitle}</a>
+               //                <div class="cart-list__forms">
+               //                   <div class="cart-list__form-color"> black </div>
+               //                   <div class="cart-list__form-size"> S </div>
+               //                </div>
+               //                <div class="cart-list__price"> ${cartProductPrice} </div>
+               //                <div class="cart-list__bottom"> 
+               //                   <div class="cart-list__quantity">
+               //                      <button class="cart-list__quantity-decrease cart-list__quantity-button">-</button> 
+               //                      <span>1</span>
+               //                      <button class="cart-list__quantity-increase cart-list__quantity-button">+</button>
+               //                   </div>
+               //                   <a href="" class="cart-list__delete">удалить</a>
+               //                </div>
+               //             </div>
+               //             `;
+               //             // integrate to html. create li with id and class and put there a cartProductContent;
+               //             // <li data-cart-prodid="${productId}" class="cart-list__item">${cartProductContent}</li>
+               //             cartList.insertAdjacentHTML('beforeend', `<li data-cart-prodid="${productId}" class="cart-list__item">${cartProductContent}</li>`)
+               //          }
+               //          else { //if this product is in cart do this
+               //             const cartProductQuantity = cartProduct.querySelector('.cart-list__quantity span'); // get cart list 
+               //             cartProductQuantity.innerHTML = ++cartProductQuantity.innerHTML; // increase to 1 
+               //          }
 
-         // remove hold to add new 
-         productButton.classList.remove('_hold');
-      }
-      //=================remove products buy clicking on remove button. 
-      else {
-         const cartProductQuantity = cartProduct.querySelector('.cart-list__quantity span'); // get cart list
-         cartProductQuantity.innerHTML = --cartProductQuantity.innerHTML; //decrease in one counttity of product 
-         if (!parseInt(cartProductQuantity.innerHTML)) { // if span = 0 
-            cartProduct.remove(); // delate this prod
-         }
+               //          // remove hold to add new 
+               //          productButton.classList.remove('_hold');
+               //       }
+               //       //=================remove products buy clicking on remove button. 
+               //       else {
+               //          const cartProductQuantity = cartProduct.querySelector('.cart-list__quantity span'); // get cart list
+               //          cartProductQuantity.innerHTML = --cartProductQuantity.innerHTML; //decrease in one counttity of product 
+               //          if (!parseInt(cartProductQuantity.innerHTML)) { // if span = 0 
+               //             cartProduct.remove(); // delate this prod
+               //          }
 
-         const cartQuantityValue = --cartQuantity.innerHTML; //decrease on one all quantity of prod 
+               //          const cartQuantityValue = --cartQuantity.innerHTML; //decrease on one all quantity of prod 
 
-         if (cartQuantityValue) { // if it's bigget than 0 chanhe span value
-            cartQuantity.innerHTML = cartQuantityValue;
-         } else {
-            cartQuantity.remove();
-            cart.classList.remove('_active');
-         }
-      }
-   }
-   ///===============================delete=========
-   ///===============================================
-   function updateCart2(productButton, productId, productAdd = true) {
-      const cart = document.querySelector('.cart');
-      const cartIcon = cart.querySelector('.cart__icon');
-      const cartQuantity = cartIcon.querySelector('span');
-      const cartProduct = document.querySelector(`[data-cart-prodid="${productId}"]`);
-      if (productAdd) {
-         productButton.classList.remove('_hold');
-      }
-      else {
-         if (cartProduct) {
-            cartProduct.remove(); // delate this prod
-         }
-         const cartQuantityValue = cartQuantity.innerHTML = ""; //decrease on one all quantity of prod 
+               //          if (cartQuantityValue) { // if it's bigget than 0 chanhe span value
+               //             cartQuantity.innerHTML = cartQuantityValue;
+               //          } else {
+               //             cartQuantity.remove();
+               //             cart.classList.remove('_active');
+               //          }
+               //       }
+               //    }
+               //    ///===============================================
+               //    ///===============================================
+               //    ///==============================add in main index.html==========
+               //    ///===============================================
+               //    function addToCartMAIN(productButton, productId) {
+               //       if (!productButton.classList.contains('_hold')) { //if target element dont have hold
+               //          productButton.classList.add('_hold'); //add hold
+               //          productButton.classList.add('_fly'); //add fly class
 
-         if (cartQuantityValue) { // if it's bigget than 0 chanhe span value
-            cartQuantity.innerHTML = cartQuantityValue;
-         } else {
-            cartQuantity.remove();
-            cart.classList.remove('_active');
-         }
-      }
-   }
-   ///===============================================
-   ///===============================================
-}
+               //          const cart = document.querySelector('.cart__icon');
+               //          const product = document.querySelector(`[data-prodid="${productId}"]`);
+               //          const productImage = product.querySelector('.product-card__image');
+               //          const buybutton = product.querySelector('.buy-button');
+
+               //          const productImageFly = productImage.cloneNode(true); // clone product image submain-photo_iage (you can clone any div)
+               //          const productImageFlyWidth = productImage.offsetWidth; // get width of image in submain-photo_image
+               //          const productImageFlyHeight = productImage.offsetHeight; // get height in submain-photo_image
+               //          const productImageFlyTop = productImage.getBoundingClientRect().top; // get top of the button
+               //          const productImageFlyLeft = productImage.getBoundingClientRect().left; // get left of the button
+
+
+               //          //===========fly script
+               //          productImageFly.setAttribute('class', '_flyImage IEimg'); // add to clone element class and style it in _cart.scss
+               //          productImageFly.style.cssText = `
+               //       left: ${productImageFlyLeft}px;
+               //       top: ${productImageFlyTop}px;
+               //       width: ${productImageFlyWidth}px;
+               //       height: ${productImageFlyHeight}px;
+               //       `; // add css property 
+
+               //          document.body.append(productImageFly);  // show this clone in the end of body 
+
+               //          const cartFlyLeft = cart.getBoundingClientRect().left; //get cordinates of the cart
+               //          const cartFlyTop = cart.getBoundingClientRect().top;
+               //          productImageFly.style.cssText = `
+               //          left: ${cartFlyLeft}px;
+               //          top: ${cartFlyTop}px;
+               //          width: 0px;
+               //          height: 0px;
+               //          opacity: 0;
+               //          `; // sent clone to other cordinates. transiton is in _cart.scss
+
+               //          // remove clone
+               //          productImageFly.addEventListener('transitionend', function () { //when transition end
+               //             if (productButton.classList.contains('_fly')) { // if element clicked contains fly
+               //                productImageFly.remove();//remove clone
+               //                updateCartMAIN(productButton, productId); // functioin that get element in cart
+               //                productButton.classList.remove('_fly') // remove
+               //             }
+               //          })
+               //       }
+
+               //       ///===========if you want to add without fly animation left only this
+               //       // updateCart(productButton, productId); // functioin that get element in cart
+               //    }
+               //    function updateCartMAIN(productButton, productId, productAdd = true) {
+               //       const cart = document.querySelector('.cart');
+               //       const cartIcon = cart.querySelector('.cart__icon');
+               //       const cartQuantity = cartIcon.querySelector('span');
+               //       const cartProduct = document.querySelector(`[data-cart-prodid="${productId}"]`);
+               //       const cartList = document.querySelector('.cart-list');
+
+               //       //============add products buy clicking on buy button
+               //       if (productAdd) { // if true
+               //          if (cartQuantity) { // if there is span descrese its on 1
+               //             cartQuantity.innerHTML = ++cartQuantity.innerHTML; // ++
+               //          } else { // if not add this
+               //             cartIcon.insertAdjacentHTML('beforeend', `<span>1</span>`);
+               //          }
+               //          // add list of products.
+               //          if (!cartProduct) { // if product isn't added form this
+               //             const product = document.querySelector(`[data-prodid="${productId}"]`);
+               //             const cartProductImage = product.querySelector('.product-card__image').innerHTML; // get phote from this productID
+               //             const cartProductTitle = product.querySelector('.product-card__title').innerHTML; // get title
+               //             const cartProductPrice = product.querySelector('.product-card__price').innerHTML;
+               //             //form a html code which we will add to cart
+               //             const cartProductContent = `
+               //             <a href="" class="cart-list__image IEimg">${cartProductImage}</a>
+               //             <div class="cart-list__body">
+               //                <a href="" class="cart-list__title">${cartProductTitle}</a>
+               //                <div class="cart-list__forms">
+               //                   <div class="cart-list__form-color"> black </div>
+               //                   <div class="cart-list__form-size"> S </div>
+               //                </div>
+               //                <div class="cart-list__price"> ${cartProductPrice} </div>
+               //                <div class="cart-list__bottom"> 
+               //                   <div class="cart-list__quantity">
+               //                      <button class="cart-list__quantity-decrease cart-list__quantity-button">-</button> 
+               //                      <span>1</span>
+               //                      <button class="cart-list__quantity-increase cart-list__quantity-button">+</button>
+               //                   </div>
+               //                   <a href="" class="cart-list__delete">удалить</a>
+               //                </div>
+               //             </div>
+               //             `;
+               //             // integrate to html. create li with id and class and put there a cartProductContent;
+               //             // <li data-cart-prodid="${productId}" class="cart-list__item">${cartProductContent}</li>
+               //             cartList.insertAdjacentHTML('beforeend', `<li data-cart-prodid="${productId}" class="cart-list__item">${cartProductContent}</li>`)
+               //          }
+               //          else { //if this product is in cart do this
+               //             const cartProductQuantity = cartProduct.querySelector('.cart-list__quantity span'); // get cart list 
+               //             cartProductQuantity.innerHTML = ++cartProductQuantity.innerHTML; // increase to 1 
+               //          }
+
+               //          // remove hold to add new 
+               //          productButton.classList.remove('_hold');
+               //       }
+               //       //=================remove products buy clicking on remove button. 
+               //       else {
+               //          const cartProductQuantity = cartProduct.querySelector('.cart-list__quantity span'); // get cart list
+               //          cartProductQuantity.innerHTML = --cartProductQuantity.innerHTML; //decrease in one counttity of product 
+               //          if (!parseInt(cartProductQuantity.innerHTML)) { // if span = 0 
+               //             cartProduct.remove(); // delate this prod
+               //          }
+
+               //          const cartQuantityValue = --cartQuantity.innerHTML; //decrease on one all quantity of prod 
+
+               //          if (cartQuantityValue) { // if it's bigget than 0 chanhe span value
+               //             cartQuantity.innerHTML = cartQuantityValue;
+               //          } else {
+               //             cartQuantity.remove();
+               //             cart.classList.remove('_active');
+               //          }
+               //       }
+               //    }
+               //    ///===============================delete=========
+               //    ///===============================================
+               //    function updateCart2(productButton, productId, productAdd = true) {
+               //       const cart = document.querySelector('.cart');
+               //       const cartIcon = cart.querySelector('.cart__icon');
+               //       const cartQuantity = cartIcon.querySelector('span');
+               //       const cartProduct = document.querySelector(`[data-cart-prodid="${productId}"]`);
+               //       if (productAdd) {
+               //          productButton.classList.remove('_hold');
+               //       }
+               //       else {
+               //          if (cartProduct) {
+               //             cartProduct.remove(); // delate this prod
+               //          }
+               //          const cartQuantityValue = cartQuantity.innerHTML = ""; //decrease on one all quantity of prod 
+
+               //          if (cartQuantityValue) { // if it's bigget than 0 chanhe span value
+               //             cartQuantity.innerHTML = cartQuantityValue;
+               //          } else {
+               //             cartQuantity.remove();
+               //             cart.classList.remove('_active');
+               //          }
+               //       }
+               //    }
+               //    ///===============================================
+               //    ///===============================================
+               // }
 //===========================================================================
 //===========================================================================
 //=========================================================chage color when hover the katalog. 

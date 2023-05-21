@@ -40,13 +40,14 @@
                                             autocomplete="off">    
                                     </form>
                                     <div class="search__result">
-                                        
+
                                     </div>
                                 </div>
                             </div>
                             <div class="header-main__cart">
                                 <div class="cart">
-                                    <a href="" class="cart__icon icon-cart _hover"></a>
+                                    <?php estore_woocommerce_cart_link();?>
+                                    <!-- the same as above  <a href="" class="cart__icon icon-cart _hover"></a> -->
                                     <div class="cart__body">
                                         <div class="cart__up">
                                             <div class="cart__title subtitle">КОРЗИНА</div>
