@@ -60,8 +60,7 @@
                                                 <span id="total">1999 uah.</span>
                                             </div>
                                             <a href="cart.html" class="cart__goto text _button">ПЕРЕЙТИ В КОРЗИНУ</a>
-                                            <div class="cart__info smalltext">доставка рассчитывается при оформлении
-                                                заказа</div>
+                                            <div class="cart__info smalltext">доставка рассчитывается при оформлении заказа</div>
                                         </div>
                                     </div>
                                 </div>

@@ -1,6 +1,5 @@
 <?php
 
-
 if ( ! function_exists( 'estore_woocommerce_cart_link_fragment' ) ) {
 	/**
 	 * Cart Fragments.
