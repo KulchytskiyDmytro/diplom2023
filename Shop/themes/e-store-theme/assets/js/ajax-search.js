@@ -15,14 +15,24 @@ jQuery(function ($) {
             type:'POST', //type of transmition
             dataType:'json', // type of data 
             beforeSend:function(xhr){ //  
+                $('.search-result-close').text('Пошук...');
             }, 
-            success:function(data){ // successful sending case 
+            success:function(data){ 
+                $('.search-result-close').text('Очистить');
+                $('.search_form').css('overflow', 'visible');
+                // successful sending case 
                 $('.search_form .search__result').html(data.out); // search value
                 // var heightResilt = $('.search_form .search__result').height(); // chage height
                 // $('.search_form .search__result').css('height', heightResilt);
                 //.log($('.search_form .search-result').height());
+                $('.search__result').addClass('search-result-over');
             }
         });
         // console.log(search);
     });
+     $('.search-result-close').click(function () {
+        $('.search__result').removeClass('search-result-over');
+        $('.search__result').empty();
+        $('.search_form input[name="s"]').val('');
+    })
 });

@@ -1358,12 +1358,21 @@ body._lock footer {
     padding: 10px 0;
   }
   .menu__item:not(:first-child) {
-    padding: 20px 0;
+    padding: 21.5px 0;
+  }
+  .menu__item:nth-child(2) {
+    padding: 31.5px 0 21.5px 0;
   }
 }
 .menu__link {
   cursor: pointer;
   color: black;
+  text-transform: uppercase;
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 100%;
 }
 @media (max-width: 767px) {
   .menu__link {
@@ -1526,8 +1535,7 @@ body._lock footer {
   }
 }
 .katalog__item {
-  min-height: 70px;
-  padding: 0px 15px 25px 15px;
+  padding: 0px 15px 20px 15px;
 }
 @media (max-width: 767px) {
   .katalog__item {
@@ -1536,14 +1544,16 @@ body._lock footer {
     display: flex;
     align-items: center;
   }
-  .katalog__item:not(:first-child) {
-    padding: 10px 0;
+  .katalog__item:nth-child(2) {
+    padding: 20px 0 10px 0;
   }
 }
 .katalog__link {
   color: black;
   position: relative;
   left: 0;
+  line-height: 125%;
+  color: black;
 }
 .katalog__link::before {
   font-size: 30px;
@@ -1560,6 +1570,17 @@ body._lock footer {
     margin-bottom: 10px;
   }
 }
+@media (max-width: 767px) {
+  .katalog__link {
+    margin-left: 10px;
+    text-transform: uppercase;
+    font-family: Oswald;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 100%;
+  }
+}
 
 @media (max-width: 767px) {
   .sub-katalog {
@@ -1572,6 +1593,11 @@ body._lock footer {
   }
   .sub-katalog._display {
     display: block;
+  }
+}
+@media (min-width: 767px) {
+  .sub-katalog {
+    padding-left: 20px;
   }
 }
 @media (max-width: 767px) {
@@ -1597,8 +1623,11 @@ body._lock footer {
   .sub-katalog__item {
     padding: 10px 0;
   }
-  .sub-katalog__item:not(:first-child) {
-    padding: 22px 0;
+  .sub-katalog__item:nth-child(2) {
+    padding: 20px 0 10px 0;
+  }
+  .sub-katalog__item:not(:first-child) .sub-katalog__link {
+    margin-left: 10px;
   }
 }
 .sub-katalog__link {
@@ -1607,6 +1636,7 @@ body._lock footer {
 }
 @media (max-width: 767px) {
   .sub-katalog__link {
+    min-height: 40px;
     text-transform: uppercase;
     font-family: Oswald;
     font-style: normal;

@@ -23,9 +23,19 @@ function esp_search_ajax_action_callback(){
 		while ($query_ajax->have_posts()) {
 			$query_ajax->the_post();
 			?>
-			<div class="title-searche"><?php echo get_the_title();?></div>
+			<div class="search-result-text">
+				<div class="title-searche">
+					<a href="<?php echo get_permalink(); ?>"><?php echo get_the_title(); ?></a>
+				</div>
+			</div>
 <?php 
 		       }
+	} else {
+		?>
+		<div class="search-result-text">
+			Нічого не знайдено 
+		</div>
+		<?php
 	}
 	$json_data['out'] .= ob_get_clean(); // close buffer
 	wp_send_json($json_data);
