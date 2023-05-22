@@ -6,10 +6,11 @@
  * Time: 12:43
  */
 remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
+
 add_action( 'woocommerce_before_main_content', 'estore_add_breadcrumbs', 20 );
 function estore_add_breadcrumbs(){
 	?>
-    <div class="sub-header">
+            <div class="sub-header container">
                 <div class="sub-header__title icon-scuba subtitle">
                     <!-- <a href="" class="subtitle _hover"> ВОДНЫЙ СПОРТ</a>
                     <a href="" class="subtitle _hover"> ОЧКИ ДЛЯ ПЛАВАНИЯ</a>
@@ -20,18 +21,20 @@ function estore_add_breadcrumbs(){
 <?php
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////
+
 add_action( 'woocommerce_before_single_product', 'estore_wrapper_product_start', 5 );
 function estore_wrapper_product_start() {
 	?>
-        <div class="product-page__content">
-            <div data-prodid="1" class="content">
+        <div class="product-page__content container">
 	<?php
 }
 
 add_action( 'woocommerce_after_single_product', 'estore_wrapper_product_end', 5 );
 function estore_wrapper_product_end() {
 	?>
-            </div>
         </div>
 	<?php
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////
