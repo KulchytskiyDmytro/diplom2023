@@ -44,6 +44,11 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="header-main__account">
+                                <div class="account">
+                                    <a href="#popup-account" class="account__icon icon-storage _hover popup-link"></a>
+                                </div>
+                            </div>
                             <div class="header-main__cart">
                                 <div class="cart">
                                     <?php estore_woocommerce_cart_link();?>

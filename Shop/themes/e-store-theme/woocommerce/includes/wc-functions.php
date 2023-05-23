@@ -11,7 +11,7 @@ add_action( 'woocommerce_before_main_content', 'estore_add_breadcrumbs', 20 );
 function estore_add_breadcrumbs(){
 	?>
     <div class="sub-header container">
-                <div class="sub-header__title icon-scuba subtitle">
+                <div class="sub-header__title icon-slider-right-arrow subtitle">
                     <!-- <a href="" class="subtitle _hover"> ВОДНЫЙ СПОРТ</a>
                     <a href="" class="subtitle _hover"> ОЧКИ ДЛЯ ПЛАВАНИЯ</a>
                     <span href="" class="subtitle"> EASYBREATH </span> -->
