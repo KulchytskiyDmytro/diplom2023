@@ -353,51 +353,7 @@ function estore_wrapper_product_image_start() {
                         <div class="main-photo">
                             <div class="main-photo__slider">
                                 <div class="main-photo__wrapper ">
-                                    <div class="main-photo__slide ">
-                                        <div class="main-photo__image zoom lightbox-enabled  IEimg">
-                                            <?php do_action( 'custom_image_tumb' );?>
-                                        </div>
-                                    </div>
-                                    <div class="main-photo__slide ">
-                                        <div class="main-photo__image zoom lightbox-enabled IEimg">
-                                            <?php do_action( 'custom_image' );?>
-                                        </div>
-                                    </div>
-                                    <div class="main-photo__slide">
-                                        <div class="main-photo__image zoom lightbox-enabled IEimg">
-                                            <?php do_action( 'custom_image' );?>
-                                        </div>
-                                    </div>
-                                    <div class="main-photo__slide">
-                                        <div class="main-photo__image  zoom lightbox-enabled  IEimg">
-                                            <img src="img/product-photo/55.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="main-photo__slide">
-                                        <div class="main-photo__image  zoom lightbox-enabled  IEimg">
-                                            <?php do_action( 'custom_image' );?>
-                                        </div>
-                                    </div>
-                                    <div class="main-photo__slide">
-                                        <div class="main-photo__image zoom lightbox-enabled   IEimg">
-                                            <img src="img/product-photo/9.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="main-photo__slide">
-                                        <div class="main-photo__image  zoom lightbox-enabled  IEimg">
-                                            <img src="img/product-photo/665.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="main-photo__slide">
-                                        <div class="main-photo__image  zoom lightbox-enabled  IEimg">
-                                            <img src="img/product-photo/divemask.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="main-photo__slide">
-                                        <div class="main-photo__image zoom lightbox-enabled   IEimg">
-                                            <img src="img/product-photo/divemask1.jpg" alt="">
-                                        </div>
-                                    </div>
+                                <?php do_action( 'custom_image' );?>
                                 </div>
                             </div>
                         </div>
