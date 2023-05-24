@@ -37,9 +37,9 @@ get_header( 'shop' ); ?>
 
 
 
-	<?php while ( have_posts() ) : the_post(); //=========================================== main content (slider, desc, prod details ) ?>
+	<?php while ( have_posts() ) : the_post(); //=========================================== main content (slider, desc, prod details )it is content-single-product ?>
 
-	<?php wc_get_template_part( 'content', 'single-product' ); ?>
+		<?php wc_get_template_part( 'content', 'single-product' ); ?>
 
 	<?php endwhile; // end of the loop. ?>
 
