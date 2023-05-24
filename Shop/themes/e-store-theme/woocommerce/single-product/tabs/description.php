@@ -24,7 +24,7 @@ $heading = apply_filters( 'woocommerce_product_description_heading', __( 'Descri
 ?>
 
 <?php if ( $heading ) : ?>
-	<h2><?php echo esc_html( $heading ); ?></h2>
+	<div class="characteristic__label smalltext"><?php echo esc_html( $heading ); ?></div>
 <?php endif; ?>
 
 <?php the_content(); ?>
