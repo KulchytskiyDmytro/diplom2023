@@ -485,6 +485,7 @@ h6 {
   align-items: center;
   text-align: center;
   transition: all 0.3s ease 0s;
+  text-transform: uppercase;
   min-height: 48px;
   padding: 0 20px;
   width: auto;
@@ -2398,10 +2399,10 @@ body._lock footer {
 
 .login-signup {
   position: relative;
-  padding: 30px 10% 60px;
+  padding: 30px 10% 40px;
   min-width: 300px;
   width: 80vw;
-  max-width: 600px;
+  max-width: 800px;
 }
 .login-signup__close {
   position: absolute;
@@ -2413,6 +2414,122 @@ body._lock footer {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+}
+.login-signup__container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+@media (max-width: 767px) {
+  .login-signup__container {
+    flex-direction: column;
+  }
+}
+.login-signup__login {
+  min-width: 50%;
+  padding-right: 35px;
+}
+@media (min-width: 767px) {
+  .login-signup__login {
+    border-right: 1px solid #6c6c6c;
+  }
+}
+@media (max-width: 767px) {
+  .login-signup__login {
+    padding-right: 0;
+  }
+}
+.login-signup__signup {
+  min-width: 50%;
+  padding-left: 35px;
+}
+@media (max-width: 767px) {
+  .login-signup__signup {
+    padding-left: 0;
+  }
+}
+
+.login div:not(:last-child) {
+  margin: 0 0 20px 0;
+}
+.login__button button {
+  width: 100%;
+}
+.login__checkbox {
+  min-height: 48px;
+}
+.login__forgotPass a {
+  display: block;
+  text-align: center;
+}
+
+.signup div:not(:last-child) {
+  margin: 0 0 20px 0;
+}
+.signup__button button {
+  width: 100%;
+  background-color: #191919;
+}
+
+._input {
+  border-bottom: 1px solid #dadada;
+  background-color: transparent;
+  padding: 10px;
+  width: 100%;
+  min-height: 48px;
+  color: #a1a1a1;
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 1px;
+}
+
+._checkbox {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  padding-top: 4px;
+  cursor: pointer;
+}
+._checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+._checkbox span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border: 1px solid #191919;
+  border-radius: 5px;
+}
+._checkbox:hover input ~ span {
+  border: 2px solid #191919;
+}
+._checkbox input:checked ~ span {
+  background-color: #191919;
+}
+._checkbox input:checked ~ span:after {
+  opacity: 1;
+}
+._checkbox span::after {
+  content: "";
+  position: absolute;
+  opacity: 0;
+  transition: all 0.1s ease 0s;
+  left: 5.5px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
 }
 
 .main {

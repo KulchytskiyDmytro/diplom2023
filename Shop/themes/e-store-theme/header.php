@@ -78,7 +78,7 @@
                             </div>
                         </div>
                         <div class="header-main__left">
-                            <div class="header-main__logo"><a href="index.html" class="">
+                            <div class="header-main__logo"><a href="http://shopdip.sbs" class="">
                                     <div>Sport</div>
                                     <div>
                                         <div class="header-main__logo-dot"></div> Shop.ua

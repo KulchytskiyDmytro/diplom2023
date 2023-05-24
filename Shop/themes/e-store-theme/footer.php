@@ -70,9 +70,18 @@ $phone = carbon_get_theme_option('crb_phone');
             <div class="popup__body">
                 <div class="popup__content">
                     <div class="login-signup">
+
                         <a href="" class="login-signup__close popup-close icon-spoller-plus"></a>
-                        <?php get_template_part('/woocommerce/include/wc-form','login');?>
-                        <?php get_template_part('/woocommerce/include/wc-rgister','login');?>
+                        <?php wc_print_notices(); ?>
+                        <div class="login-signup__container">
+                            <div class="login-signup__login">
+                                <?php get_template_part('/woocommerce/includes/wc-form','login');?>
+                            </div>
+                            <div class="login-signup__signup">
+                                <?php get_template_part('/woocommerce/includes/wc-form','register');?>
+                            </div>
+                        </div>
+                       
                     </div>
                 </div>
             </div>
