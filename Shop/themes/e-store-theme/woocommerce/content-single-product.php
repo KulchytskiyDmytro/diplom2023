@@ -47,6 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 */
 		//============================================================================== slider + description
 		do_action( 'woocommerce_before_single_product_summary' );
+
 	?><!-- .beforesummary -->
 
 

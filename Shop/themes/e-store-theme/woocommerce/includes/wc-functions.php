@@ -31,7 +31,182 @@ function estore_output_content_wrapper_start() {
 add_action( 'woocommerce_after_main_content', 'estore_output_content_wrapper_end', 10 );
 function estore_output_content_wrapper_end() {
 	?>
+        
         </div>
+	<?php
+}
+
+add_action( 'woocommerce_after_main_content', 'estore_output_content_slider', 5 );
+function estore_output_content_slider() {
+	?>
+        <div class="recomend-slider">
+                <div class="recomend-slider__container container">
+                    <div class="recomend-slider__body">
+                        <div class="recomend-slider__recomend-header">
+                            <div class="recomend-header">
+                                <div class="recomend-header__title title">ТАКЖЕ ВАМ ПОНРАВИТЬСЯ</div>
+                                <div class="recomend-header__line"></div>
+                                <div class="recomend-header__arrows">
+                                    <button
+                                        class="recomend-header__arrow 
+                                        recomend-header__button-prev slider-recomend-header__button-prev icon-slider-right-arrow "></button>
+                                    <button
+                                        class="recomend-header__arrow 
+                                        recomend-header__button-next slider-recomend-header__button-next icon-slider-right-arrow "></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="recomend-slider__slider">
+                            <div class="recomend-slider__wrapper">
+                                <div class="recomend-slider__slide">
+                                    <div data-prodid="7" class="product-card">
+                                        <div class="product-card__wrapper">
+                                            <div class="product-card__labels">
+                                                <div class="product-card__label product-card__label-new text">
+                                                    NEW
+                                                </div>
+                                                <div class="product-card__label product-card__label-sale text">
+                                                    SALE
+                                                </div>
+                                            </div>
+                                            <a href="product_page.html" class="product-card__image IEimg">
+                                                <img src="img/product-photo/9.jpg" alt="">
+                                            </a>
+                                            <a href="product_page.html" class="product-card__title subtitle _hover">Очки
+                                                для
+                                                плавания</a>
+                                            <div class="product-card__prices">
+                                                <div class="product-card__price subtitle">1,200 uah. </div>
+                                                <div class="product-card__price product-card__price-old subtitle">
+                                                    2,
+                                                    900 uah.
+                                                </div>
+                                            </div>
+                                            <a href="" class="product-card__cart-button buy-button _button"> В
+                                                КОРЗИНУ</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="recomend-slider__slide">
+                                    <div data-prodid="2" class="product-card">
+                                        <div class="product-card__wrapper">
+                                            <div class="product-card__labels">
+                                                <div class="product-card__label product-card__label-new text">
+                                                    NEW
+                                                </div>
+                                            </div>
+                                            <a href="product_page.html" class="product-card__image IEimg">
+                                                <img src="img/product-photo/9.jpg" alt="">
+                                            </a>
+                                            <a href="product_page.html" class="product-card__title subtitle _hover">Очки
+                                                для
+                                                плавания</a>
+                                            <div class="product-card__prices">
+                                                <div class="product-card__price subtitle">1,900 uah. </div>
+                                            </div>
+                                            <a href="" class="product-card__cart-button buy-button _button"> В
+                                                КОРЗИНУ</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="recomend-slider__slide">
+                                    <div data-prodid="3" class="product-card">
+                                        <div class="product-card__wrapper">
+                                            <div class="product-card__labels">
+                                                <div class="product-card__label product-card__label-sale text">
+                                                    SALE
+                                                </div>
+                                            </div>
+                                            <a href="product_page.html" class="product-card__image IEimg">
+                                                <img src="img/product-photo/recomend slider 1.jpeg" alt="">
+                                            </a>
+                                            <a href="product_page.html" class="product-card__title subtitle _hover">Маска
+                                                для плавания</a>
+                                            <div class="product-card__prices">
+                                                <div class="product-card__price subtitle">2,000 uah. </div>
+                                                <div class="product-card__price product-card__price-old subtitle">
+                                                    3,
+                                                    900 uah.
+                                                </div>
+                                            </div>
+                                            <a href="" class="product-card__cart-button buy-button _button"> В
+                                                КОРЗИНУ</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="recomend-slider__slide">
+                                    <div data-prodid="4" class="product-card">
+                                        <div class="product-card__wrapper">
+                                            <div class="product-card__labels">
+
+                                            </div>
+                                            <a href="product_page.html" class="product-card__image IEimg">
+                                                <img src="img/product-photo/divemask.jpg" alt="">
+                                            </a>
+                                            <a href="product_page.html" class="product-card__title subtitle _hover">Маска
+                                                для дайвинга</a>
+                                            <div class="product-card__prices">
+                                                <div class="product-card__price subtitle">1,600 uah. </div>
+                                            </div>
+                                            <a href="" class="product-card__cart-button buy-button _button"> В
+                                                КОРЗИНУ</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="recomend-slider__slide">
+                                    <div data-prodid="5" class="product-card">
+                                        <div class="product-card__wrapper">
+                                            <div class="product-card__labels">
+                                            </div>
+                                            <a href="product_page.html" class="product-card__image IEimg">
+                                                <img src="img/product-photo/divemask1.jpg" alt="">
+                                            </a>
+                                            <a href="product_page.html" class="product-card__title subtitle _hover">Маска
+                                                Для ныряния </a>
+                                            <div class="product-card__prices">
+                                                <div class="product-card__price subtitle">900 uah. </div>
+                                            </div>
+                                            <a href="" class="product-card__cart-button buy-button _button"> В
+                                                КОРЗИНУ</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="recomend-slider__slide">
+                                    <div data-prodid="6" class="product-card">
+                                        <div class="product-card__wrapper">
+                                            <div class="product-card__labels">
+                                                <div class="product-card__label product-card__label-new text">
+                                                    NEW
+                                                </div>
+                                                <div class="product-card__label product-card__label-sale text">
+                                                    SALE
+                                                </div>
+                                            </div>
+                                            <a href="product_page.html" class="product-card__image IEimg">
+                                                <img src="img/product-photo/4.jpg" alt="">
+                                            </a>
+                                            <a href="product_page.html"
+                                                class="product-card__title subtitle _hover">Профисиональня маска
+                                                для
+                                                погружения под воду Lockbreath</a>
+                                            <div class="product-card__prices">
+                                                <div class="product-card__price subtitle">6,200 uah. </div>
+                                                <div class="product-card__price product-card__price-old subtitle">
+                                                    9,
+                                                    900 uah.
+                                                </div>
+                                            </div>
+                                            <a href="" class="product-card__cart-button buy-button _button"> В
+                                                КОРЗИНУ</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 	<?php
 }
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -48,6 +223,7 @@ function estore_template_single() {
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
+add_action( 'custom-image', 'woocommerce_show_product_images', 20 );
 add_action( 'woocommerce_before_single_product_summary', 'esore_template_single_excerpt', 25 );
 function esore_template_single_excerpt() {
 	?>
@@ -174,12 +350,12 @@ function estore_wrapper_product_image_start() {
                                 <div class="main-photo__wrapper ">
                                     <div class="main-photo__slide ">
                                         <div class="main-photo__image zoom lightbox-enabled  IEimg">
-                                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Anime_Girl.png/1024px-Anime_Girl.png" alt="">
+                                            <?php do_action( 'custom-image' );?>
                                         </div>
                                     </div>
                                     <div class="main-photo__slide ">
                                         <div class="main-photo__image zoom lightbox-enabled IEimg">
-                                            <img src="https://cdnb.artstation.com/p/assets/images/images/026/177/377/large/sme1f-rey-4.jpg?1588094509" alt="">
+                                            <?php do_action( 'custom-image' );?>
                                         </div>
                                     </div>
                                     <div class="main-photo__slide">
@@ -225,7 +401,7 @@ function estore_wrapper_product_image_start() {
                                 <div class="submain-photo__wrapper">
                                     <div class="submain-photo__slide">
                                         <div class="submain-photo__image IEimg">
-                                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Anime_Girl.png/1024px-Anime_Girl.png" alt="">
+                                            <?php do_action( 'custom-image' );?>
                                         </div>
                                     </div>
                                     <div class="submain-photo__slide">
