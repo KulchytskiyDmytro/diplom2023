@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 *
 	 * @hooked wc_print_notices - 10
 	 */
-	 do_action( 'woocommerce_before_single_product' );
+	//  do_action( 'woocommerce_before_single_product' );
 
 	 if ( post_password_required() ) {
 	 	echo get_the_password_form();
@@ -46,10 +46,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 * @hooked woocommerce_show_product_images - 20
 		 */
 		do_action( 'woocommerce_before_single_product_summary' );
-	?>
-
-	<div class="summary entry-summary">
-
+	?><!-- .beforesummary -->
+	<div class="content__buy">
+		<div calss="buy__top"> 
 		<?php
 			/**
 			 * woocommerce_single_product_summary hook.
@@ -65,8 +64,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 			 */
 			do_action( 'woocommerce_single_product_summary' );
 		?>
-
-	</div><!-- .summary -->
+		</div>
+	</div>
+	<!-- .summary -->
 
 	<?php
 		/**
