@@ -40,12 +40,12 @@ $wrapper_classes   = apply_filters(
 		if ( $post_thumbnail_id ) {
 			$html = wc_get_gallery_image_html( $post_thumbnail_id, true );
 
-			$html  = '<div class="main-photo__slide"> <div class="main-photo__image zoom lightbox-enabled IEimg">';
+			$html  = '<div class="submain-photo__slide"> <div class="submain-photo__image zoom lightbox-enabled IEimg">';
 			$html .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src( 'woocommerce_single' ) ), esc_html__( 'Awaiting product image', 'woocommerce' ) );
 			$html .= '</div> </div>';
 		}
 
 		echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, $post_thumbnail_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
 
-		do_action( 'woocommerce_product_thumbnails' );
+		do_action( 'custom_images' );
 		?>

@@ -28,7 +28,7 @@ $attachment_ids = $product->get_gallery_image_ids();
 
 if ( $attachment_ids && $product->get_image_id() ) {
 	foreach ( $attachment_ids as $attachment_id ) {
-		echo  '<div class="main-photo__slide"> <div class="main-photo__image zoom lightbox-enabled IEimg">';
+		echo  '<div class="submain-photo__slide"> <div class="submain-photo__image zoom lightbox-enabled IEimg">';
 		echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', wc_get_gallery_image_html( $attachment_id ), $attachment_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
 		echo '</div> </div>';
 	}

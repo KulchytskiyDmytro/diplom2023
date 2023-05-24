@@ -5,6 +5,10 @@
  * Date: 03.11.2023
  * Time: 12:43
  */
+
+
+ add_action( 'custom_images', 'custom_show_images', 20 );
+
 remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
 add_action( 'woocommerce_before_main_content', 'estore_add_breadcrumbs', 20 );
@@ -224,7 +228,7 @@ function estore_template_single() {
 ///////////////////////////////////////////////////////////////////////////////////////////
 remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
 add_action( 'custom_image', 'woocommerce_show_product_images', 20 );
-add_action( 'custom_image_tumb', 'woocommerce_show_product_thumbnails', 20 );
+add_action( 'custom_image_submain', 'custom_image_sub', 20 );
 
 
 
@@ -353,62 +357,15 @@ function estore_wrapper_product_image_start() {
                         <div class="main-photo">
                             <div class="main-photo__slider">
                                 <div class="main-photo__wrapper ">
-                                <?php do_action( 'custom_image' );?>
+                                    <?php do_action( 'custom_image' );?>
                                 </div>
                             </div>
                         </div>
                         <div class="submain-photo">
                             <div class="submain-photo__slider">
                                 <div class="submain-photo__wrapper">
-                                    <div class="submain-photo__slide">
-                                        <div class="submain-photo__image IEimg">
-                                            <?php do_action( 'custom_image_tumb' );?>
-                                        </div>
-                                    </div>
-                                    <div class="submain-photo__slide">
-                                        <div class="submain-photo__image IEimg">
-                                            <div class="main-photo__image  IEimg">
-                                                <?php do_action( 'custom_image' );?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="submain-photo__slide">
-                                        <div class="submain-photo__image IEimg">
-                                            <?php do_action( 'custom_image' );?>
-                                        </div>
-                                    </div>
-                                    <div class="submain-photo__slide">
-                                        <div class="submain-photo__image IEimg">
-                                            <?php do_action( 'custom_image' );?>    
-                                        </div>
-                                    </div>
-                                    <div class="submain-photo__slide">
-                                        <div class="submain-photo__image IEimg">
-                                            <img src="img/product-photo/6.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="submain-photo__slide">
-                                        <div class="submain-photo__image IEimg">
-                                            <img src="img/product-photo/9.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="submain-photo__slide">
-                                        <div class="submain-photo__image IEimg">
-                                            <img src="img/product-photo/665.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="submain-photo__slide">
-                                        <div class="submain-photo__image IEimg">
-                                            <img src="img/product-photo/divemask.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="submain-photo__slide">
-                                        <div class="submain-photo__image IEimg">
-                                            <img src="img/product-photo/divemask1.jpg" alt="">
-                                        </div>
-                                    </div>
+                                    <?php do_action( 'custom_image_submain' );?>
                                 </div>
-
                             </div>
                             <div class="submain-photo__navigations">
                                 <div class="submain-photo__scrollbar"></div>

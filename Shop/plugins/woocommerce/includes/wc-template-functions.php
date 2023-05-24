@@ -1559,6 +1559,16 @@ if ( ! function_exists( 'woocommerce_show_product_images' ) ) {
 		wc_get_template( 'single-product/product-image.php' );
 	}
 }
+
+if ( ! function_exists( 'custom_image_sub' ) ) {
+
+
+
+
+	function custom_image_sub() {
+	wc_get_template( 'single-product/product-image-second.php' );
+}
+}
 if ( ! function_exists( 'woocommerce_show_product_thumbnails' ) ) {
 
 	/**
@@ -1568,7 +1578,12 @@ if ( ! function_exists( 'woocommerce_show_product_thumbnails' ) ) {
 		wc_get_template( 'single-product/product-thumbnails.php' );
 	}
 }
+if ( ! function_exists( 'custom_show_images' ) ) {
 
+function custom_show_images() {
+	wc_get_template( 'single-product/product-thumbnails-second.php' );
+}
+}
 /**
  * Get HTML for a gallery image.
  *
