@@ -6,7 +6,7 @@
  * Time: 12:43
  */
 remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
-
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
 add_action( 'woocommerce_before_main_content', 'estore_add_breadcrumbs', 20 );
 function estore_add_breadcrumbs(){
 	?>
@@ -282,7 +282,6 @@ function estore_wrapper_product_image_start() {
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 35 );
 add_action( 'woocommerce_single_product_summary', 'estore_template_single_info', 40 );
 function estore_template_single_info() {
 	?>
