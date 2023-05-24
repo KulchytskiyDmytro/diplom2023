@@ -223,7 +223,11 @@ function estore_template_single() {
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
-add_action( 'custom-image', 'woocommerce_show_product_images', 20 );
+add_action( 'custom_image', 'woocommerce_show_product_images', 20 );
+add_action( 'custom_image_tumb', 'woocommerce_show_product_thumbnails', 20 );
+
+
+
 add_action( 'woocommerce_before_single_product_summary', 'esore_template_single_excerpt', 25 );
 function esore_template_single_excerpt() {
 	?>
@@ -340,6 +344,7 @@ function esore_template_single_excerpt() {
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////
+//<?php do_action( 'custom_image_tumb' );?//>
 
 add_action( 'woocommerce_before_single_product_summary', 'estore_wrapper_product_image_start', 30 );
 function estore_wrapper_product_image_start() {
@@ -350,17 +355,17 @@ function estore_wrapper_product_image_start() {
                                 <div class="main-photo__wrapper ">
                                     <div class="main-photo__slide ">
                                         <div class="main-photo__image zoom lightbox-enabled  IEimg">
-                                            <?php do_action( 'custom-image' );?>
+                                            <?php do_action( 'custom_image_tumb' );?>
                                         </div>
                                     </div>
                                     <div class="main-photo__slide ">
                                         <div class="main-photo__image zoom lightbox-enabled IEimg">
-                                            <?php do_action( 'custom-image' );?>
+                                            <?php do_action( 'custom_image' );?>
                                         </div>
                                     </div>
                                     <div class="main-photo__slide">
                                         <div class="main-photo__image zoom lightbox-enabled IEimg">
-                                            <img src="https://pbs.twimg.com/media/EaZIlcrXsAAaFBl.jpg" alt="">
+                                            <?php do_action( 'custom_image' );?>
                                         </div>
                                     </div>
                                     <div class="main-photo__slide">
@@ -370,7 +375,7 @@ function estore_wrapper_product_image_start() {
                                     </div>
                                     <div class="main-photo__slide">
                                         <div class="main-photo__image  zoom lightbox-enabled  IEimg">
-                                            <img src="img/product-photo/6.jpg" alt="">
+                                            <?php do_action( 'custom_image' );?>
                                         </div>
                                     </div>
                                     <div class="main-photo__slide">
@@ -401,24 +406,24 @@ function estore_wrapper_product_image_start() {
                                 <div class="submain-photo__wrapper">
                                     <div class="submain-photo__slide">
                                         <div class="submain-photo__image IEimg">
-                                            <?php do_action( 'custom-image' );?>
+                                            <?php do_action( 'custom_image_tumb' );?>
                                         </div>
                                     </div>
                                     <div class="submain-photo__slide">
                                         <div class="submain-photo__image IEimg">
                                             <div class="main-photo__image  IEimg">
-                                                <img src="https://cdnb.artstation.com/p/assets/images/images/026/177/377/large/sme1f-rey-4.jpg?1588094509" alt="">
+                                                <?php do_action( 'custom_image' );?>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="submain-photo__slide">
                                         <div class="submain-photo__image IEimg">
-                                            <img src="img/product-photo/4.jpg" alt="">
+                                            <?php do_action( 'custom_image' );?>
                                         </div>
                                     </div>
                                     <div class="submain-photo__slide">
                                         <div class="submain-photo__image IEimg">
-                                            <img src="img/product-photo/55.jpg" alt="">
+                                            <?php do_action( 'custom_image' );?>    
                                         </div>
                                     </div>
                                     <div class="submain-photo__slide">
@@ -458,7 +463,7 @@ function estore_wrapper_product_image_start() {
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-add_action( 'woocommerce_single_product_summary-custom', 'estore_template_single_info', 40 );
+add_action( 'woocommerce_single_product_summary', 'estore_template_single_info', 40 );
 function estore_template_single_info() {
 	?>
                          <div class="buy__info-container">
