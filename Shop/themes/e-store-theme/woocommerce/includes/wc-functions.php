@@ -6,7 +6,6 @@
  * Time: 12:43
  */
 remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
-
 add_action( 'woocommerce_before_main_content', 'estore_add_breadcrumbs', 20 );
 function estore_add_breadcrumbs(){
 	?>
@@ -282,11 +281,11 @@ function estore_wrapper_product_image_start() {
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 35 );
-add_action( 'woocommerce_single_product_summary', 'estore_template_single_info', 40 );
+// remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 35 );
+add_action( 'woocommerce_single_product_summary-custom', 'estore_template_single_info', 40 );
 function estore_template_single_info() {
 	?>
-         <div class="buy__info-container">
+                         <div class="buy__info-container">
                             <div class="buy__delivery buy__info">
                                 <div class="buy__info-title subtitle  icon-box">ДОСТАВКА</div>
                                 <div class="buy__info-content smalltext ">
@@ -331,7 +330,7 @@ function converts_product_attributes_from_select_options_to_div() {
                         $(this).remove();
                         return true;
                     }
-                    var option = $('<div class="form__sizes-label is-visible" data-parent-id="'+$(this).data('parent-id')+'" data-value="'+$(this).val()+'">'+'<span class="form__sizes-checkmark">'+$(this).text()+'</span>'+'</div>');
+                    var option = $('<label class="form__sizes-label is-visible" data-parent-id="'+$(this).data('parent-id')+'" data-value="'+$(this).val()+'">'+''+'<span class="form__sizes-checkmark">'+$(this).text()+'</span>'+'</label>');
                     $(this).replaceWith(option);
                 });
                 

@@ -5,10 +5,10 @@ window.addEventListener('load', () => {
       const preloader = document.querySelector('.preloader');
       setTimeout(function () {
          preloader.classList.add("loaded");
-      }, 1000);
+      });
       setTimeout(function () {
          document.querySelector('body').classList.remove("_lock");
-      }, 950);
+      });
    }
 });
 
