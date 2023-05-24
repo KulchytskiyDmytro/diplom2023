@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $product;
 ?>
-<div class="product_meta">
+<div class="buy__lot smalltext product_meta">
 
 	<?php do_action( 'woocommerce_product_meta_start' ); ?>
 
@@ -31,9 +31,9 @@ global $product;
 
 	<?php endif; ?>
 
-	<?php echo wc_get_product_category_list( $product->get_id(), ', ', '<span class="posted_in">' . _n( 'Category:', 'Categories:', count( $product->get_category_ids() ), 'woocommerce' ) . ' ', '</span>' ); ?>
+	<?php // echo wc_get_product_category_list( $product->get_id(), ', ', '<span class="posted_in">' . _n( 'Category:', 'Categories:', count( $product->get_category_ids() ), 'woocommerce' ) . ' ', '</span>' ); ?>
 
-	<?php echo wc_get_product_tag_list( $product->get_id(), ', ', '<span class="tagged_as">' . _n( 'Tag:', 'Tags:', count( $product->get_tag_ids() ), 'woocommerce' ) . ' ', '</span>' ); ?>
+	<?php // echo wc_get_product_tag_list( $product->get_id(), ', ', '<span class="tagged_as">' . _n( 'Tag:', 'Tags:', count( $product->get_tag_ids() ), 'woocommerce' ) . ' ', '</span>' ); ?>
 
 	<?php do_action( 'woocommerce_product_meta_end' ); ?>
 
