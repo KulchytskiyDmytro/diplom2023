@@ -458,7 +458,7 @@ function estore_wrapper_product_image_start() {
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-add_action( 'woocommerce_single_product_summary', 'estore_template_single_info', 40 );
+add_action( 'woocommerce_single_product_summary-custom', 'estore_template_single_info', 40 );
 function estore_template_single_info() {
 	?>
                          <div class="buy__info-container">
