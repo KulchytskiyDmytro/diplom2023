@@ -37,10 +37,10 @@
                                     <form class="search__form" method="post" action="<?php esc_url( home_url( '/' ) );?>" > 
                                         <button type="button" class="search__icon icon-search "></button>
                                         <input class="search__input text" type="text" value="<?php get_search_query();?>" name="s" placeholder="Пошук"
-                                            autocomplete="off">    
+                                            autocomplete="off"> 
+                                        <div class="search__result-close text"></div>
                                     </form>
                                     <div class="search__result">
-
                                     </div>
                                 </div>
                             </div>
@@ -51,7 +51,13 @@
                             </div>
                             <div class="header-main__cart">
                                 <div class="cart">
+
+                                    <!-- cart widget -->
+                                     <?php the_widget('WC_Widget_Cart', 'title=');?>
+
+                                        <!-- counter on icon cart  -->
                                     <?php estore_woocommerce_cart_link();?>
+                                    
                                     <!-- the same as above  <a href="" class="cart__icon icon-cart _hover"></a> -->
                                     <div class="cart__body">
                                         <div class="cart__up">
@@ -60,14 +66,21 @@
                                             </ul>
                                         </div>
                                         <div class="cart__down">
-                                            <div class="cart__total subtitle">
-                                                <span>ИТОГ:</span>
-                                                <span id="total">1999 uah.</span>
+                                             <div class="cart__total subtitle">
+                                                <span>КІЛЬКІСТЬ ТОВАРІВ:</span>
+                                                <!-- <span id="total"></span> -->
+                                                <?php estore_woocommerce_cart_prodCount();?>
                                             </div>
-                                            <a href="cart.html" class="cart__goto text _button">ПЕРЕЙТИ В КОРЗИНУ</a>
-                                            <div class="cart__info smalltext">доставка рассчитывается при оформлении заказа</div>
+                                            <div class="cart__total subtitle">
+                                                <span>ПІДСУМОК:</span>
+                                                <!-- <span id="total"></span> -->
+                                                <?php estore_woocommerce_cart_prodSum();?>
+                                            </div>
+                                            <a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="cart__goto text _button">ПЕРЕЙТИ ДО КОРЗИНИ</a>
+                                            <div class="cart__info smalltext">доставка розраховується при оформленні замовлення</div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                             <div class="header-main__burger">
@@ -78,7 +91,7 @@
                             </div>
                         </div>
                         <div class="header-main__left">
-                            <div class="header-main__logo"><a href="http://shopdip.sbs" class="">
+                            <div class="header-main__logo"><a href="  <?php echo home_url('/');?> " class="">
                                     <div>Sport</div>
                                     <div>
                                         <div class="header-main__logo-dot"></div> Shop.ua

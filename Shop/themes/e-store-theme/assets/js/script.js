@@ -167,14 +167,14 @@ window.onload = function () {
                // }
       //
       //add class active when click on cart and remove when click anywhere else.
-               // if (targetElement.classList.contains("cart__icon") || targetElement.closest('.cart__icon')) {
-               //    if (document.querySelector('.cart-list').children.length > 0) {
-               //       document.querySelector('.cart').classList.toggle('_active');
-               //    }
-               //    e.preventDefault();
-               // } else if (!targetElement.closest('.cart') && !targetElement.classList.contains('buy-button')) {
-               //    document.querySelector('.cart').classList.remove('_active');
-               // }
+               if (targetElement.classList.contains("cart__icon") || targetElement.closest('.cart__icon')) {
+                  // if (document.querySelector('.cart-list').children.length > 0) {
+                     document.querySelector('.cart').classList.toggle('_active');
+                  // }
+                  e.preventDefault();
+               } else if (!targetElement.closest('.cart') && !targetElement.classList.contains('buy-button')) {
+                  document.querySelector('.cart').classList.remove('_active');
+               }
       //
       // ========  counter 
       // push the increase button to add 

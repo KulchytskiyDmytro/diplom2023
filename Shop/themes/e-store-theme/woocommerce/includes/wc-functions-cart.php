@@ -28,14 +28,34 @@ if ( ! function_exists( 'estore_woocommerce_cart_link' ) ) {
 	 * @return void
 	 */
 	function estore_woocommerce_cart_link() {
+		
 		?>
-			<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="cart__icon icon-cart _hover"  title="<?php esc_attr_e( 'View your shopping cart', 'estore' ); ?>">
+			<!-- <a href="<?php // echo esc_url( wc_get_cart_url() ); ?>" class="cart__icon icon-cart _hover"  title="<?php // esc_attr_e( 'View your shopping cart', 'estore' ); ?>"> -->
+			<a href class="cart__icon icon-cart _hover"  title="<?php esc_attr_e( 'View your shopping cart', 'estore' ); ?>">
 				<?php /* translators: number of items in the mini cart. */ ?>
                 <span class="count"><?php echo wp_kses_data( WC()->cart->get_cart_contents_count() ) ;?></span>
 			</a>
 		<?php
 	}
 }
+
+if ( ! function_exists( 'estore_woocommerce_cart_prodCount' ) ) {
+	function estore_woocommerce_cart_prodCount() {	
+		?>
+            <span><?php echo wp_kses_data( WC()->cart->get_cart_contents_count() ) ;?></span>
+		<?php
+	}
+}
+
+if ( ! function_exists( 'estore_woocommerce_cart_prodSum' ) ) {
+	function estore_woocommerce_cart_prodSum() {	
+		?>
+            <span><?php echo wp_kses_data( WC()->cart->get_cart_subtotal() ) ;?></span>
+		<?php 
+	}
+}
+
+
 
 if ( ! function_exists( 'estore_woocommerce_header_cart' ) ) {
 	/**
@@ -67,3 +87,6 @@ if ( ! function_exists( 'estore_woocommerce_header_cart' ) ) {
 		<?php
 	}
 }
+
+
+

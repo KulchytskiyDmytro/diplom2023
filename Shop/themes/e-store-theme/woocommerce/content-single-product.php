@@ -67,13 +67,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 			 * @hooked woocommerce_template_single_sharing - 50
 			 * @hooked WC_Structured_Data::generate_product_data() - 60
 			 */
-			do_action( 'woocommerce_single_product_summary');
+			do_action( 'woocommerce_single_product_summary'); //=================================== product information
 			
 		
 		?>
 		</div>
 		<?php
-			do_action( 'woocommerce_single_product_summary-custom' );
+			do_action( 'woocommerce_single_product_summary-custom' ); //============================== additional information before product information
 		?>
 	</div>
 	<!-- .summary -->

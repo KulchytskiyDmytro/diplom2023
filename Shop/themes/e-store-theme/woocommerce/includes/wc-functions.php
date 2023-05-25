@@ -283,24 +283,48 @@ function estore_wrapper_product_image_start() {
 add_action( 'woocommerce_single_product_summary-custom', 'estore_template_single_info', 40 );
 function estore_template_single_info() {
 	?>
+                        <?php
+                        $delivery_info = carbon_get_theme_option('delivery_info');
+                        $help_call = carbon_get_theme_option('help_call');
+                        $add_info = carbon_get_theme_option('add_info');
+                        ?>
+
                          <div class="buy__info-container">
+
+                            <?php if($delivery_info) : ?>
                             <div class="buy__delivery buy__info">
                                 <div class="buy__info-title subtitle  icon-box">ДОСТАВКА</div>
                                 <div class="buy__info-content smalltext ">
-                                    <div>Бесплатная доставка по городу за 24часа</div>
-                                    <div>Доставка новой почтой по украине безпредоплаты</div>
-                                    <a href="" class="link _hover">подробнее</a>
+                                    <div> <?php echo $delivery_info ?> </div>
+                                    <a href="" class="link _hover">детальніше</a>
                                 </div>
                             </div>
+                            <?php else: ?>
+                            <?php endif; ?>
+
+                            <?php if($help_call) : ?>
                             <div class="buy__call buy__info">
-                                <div class="buy__info-title subtitle icon-phone">ПОМОЩЬ</div>
+                                <div class="buy__info-title subtitle icon-phone">ДОПОМОГА</div>
                                 <div class="buy__info-content smalltext ">
-                                    <div>Помощь в выборе</div>
-                                    <div>Спросить о наличаи</div>
-                                    <a href="" class="link _hover">позвонить</a>
+                                    <div>Допомога вибору</div>
+                                    <div>Запитати про наявність</div>
+                                    <a href="tel:<?php echo $help_call ?>" class="link _hover">позвонити: <?php echo $help_call ?></a>
                                 </div>
                             </div>
-                        </div>
+                            <?php else: ?>
+                            <?php endif; ?>
+
+                            <?php if($add_info) : ?>
+                            <div class="buy__info">
+                                <div class="buy__info-title subtitle icon-phone">ДОДАТКОА ІНФОРМАЦІЯ</div>
+                                <div class="buy__info-content smalltext ">
+                                    <div> <?php echo $add_info ?> </div>
+                                </div>
+                            </div>
+                            <?php else: ?>
+                            <?php endif; ?>
+
+                        </div>       
 	<?php
 }
 

@@ -18,6 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 $email = carbon_get_theme_option('crb_email');
 $phone = carbon_get_theme_option('crb_phone');
+$adress = carbon_get_theme_option('crd_adress');
 ?>
 
 	<footer class="footer">
@@ -37,9 +38,9 @@ $phone = carbon_get_theme_option('crb_phone');
                 </div>
                 <div class="footer__social-media footer__column">
                     <div class="social-media">
-                        <a href="#" class="social-media__phone _hover text"><?php echo $phone;?></a>
-						<a href="#" class="social-media__phone _hover text"><?php echo $email;?></a>
-                        <div class="social-media__adress text">м.Київ Хрещатик</div>
+                        <a href="tel:<?php echo $phone ?>" class="social-media__phone _hover text"><?php echo $phone;?></a>
+						<a href="mailto:<?php echo $email;?>" class="social-media__phone _hover text"><?php echo $email;?></a>
+                        <div class="social-media__adress text"><?php echo $adress;?></div>
                         <div class="social-media__sm">
                             <a href="" class="social-media__icon icon-facebook  _hover text"></a>
                             <a href="" class="social-media__icon icon-telegram _hover text"></a>
