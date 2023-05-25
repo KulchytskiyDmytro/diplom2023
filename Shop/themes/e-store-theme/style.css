@@ -19,9 +19,16 @@ Version: 1.0.0
 .variation div{
 	margin-bottom: 10px;
 }
-.search__result-close{
 
+
+.buy__info{
+	position: relative;
 }
+.buy__info-content{
+	max-width: 90%;
+}
+
+
 .search__form{
 	align-items: center;
 }

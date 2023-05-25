@@ -52,9 +52,6 @@
                             <div class="header-main__cart">
                                 <div class="cart">
 
-                                    <!-- cart widget -->
-                                     <?php the_widget('WC_Widget_Cart', 'title=');?>
-
                                         <!-- counter on icon cart  -->
                                     <?php estore_woocommerce_cart_link();?>
                                     
@@ -62,8 +59,7 @@
                                     <div class="cart__body">
                                         <div class="cart__up">
                                             <div class="cart__title subtitle">КОРЗИНА</div>
-                                            <ul class="cart__cart-list cart-list">
-                                            </ul>
+                                            <?php display_products_in_cart() ?>
                                         </div>
                                         <div class="cart__down">
                                              <div class="cart__total subtitle">

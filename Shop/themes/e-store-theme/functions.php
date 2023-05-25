@@ -76,3 +76,46 @@ if ( class_exists( 'WooCommerce' ) ) {
 	
 }
 
+
+
+
+function display_products_in_cart() {
+   // Check if WooCommerce is active
+   if ( class_exists( 'WooCommerce' ) ) {
+	// Get the cart instance
+	$cart = WC()->cart;
+
+	// Get cart items
+	$cart_items = $cart->get_cart();
+
+	// Output the products in a list
+	echo '<ul class="cart__cart-list cart-list">';
+
+	foreach ( $cart_items as $cart_item_key => $cart_item ) {
+		// Get the product information
+		$product_id = $cart_item['product_id'];
+		$product_name = get_the_title( $product_id );
+		$product_permalink = get_permalink( $product_id );
+		$product_price = wc_price( $cart_item['data']->get_price() );
+		$product_image = get_the_post_thumbnail_url( $product_id, 'thumbnail' );
+		$product_quantity = $cart_item['quantity'];
+
+		// Output each product as a list item
+		echo '<li class="cart-list__item">';
+		echo '<a href="' . $product_permalink . '" class="cart-list__image IEimg"><img src="' . $product_image . '" alt=""></a>';
+		echo '<div class="cart-list__body">';
+		echo '<a href="' . $product_permalink . '" class="cart-list__title">' . $product_name . '</a>';
+		echo '<div class="cart-list__price">' . $product_price . '</div>';
+		echo '<div class="cart-list__bottom">';
+		echo '<div class="cart-list__quantity">';
+		echo '<span>' . $product_quantity . '</span>';
+		echo '</div>';
+		echo '<a href="" class="cart-list__delete">удалить</a>';
+		echo '</div>';
+		echo '</div>';
+		echo '</li>';
+	}
+
+	echo '</ul>';
+}
+}
