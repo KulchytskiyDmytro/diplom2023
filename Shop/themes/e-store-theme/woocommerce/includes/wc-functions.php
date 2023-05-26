@@ -35,7 +35,7 @@ function estore_output_content_wrapper_start() {
 add_action( 'woocommerce_after_main_content', 'estore_output_content_wrapper_end', 10 );
 function estore_output_content_wrapper_end() {
 	?>
-        
+           <?php do_action( 'custom_product_text' ); ?>
         </div>
 	<?php
 }
