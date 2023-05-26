@@ -1,0 +1,187 @@
+$footer-bg-color: #2f2f2f;
+
+.footer {
+   background-color: $footer-bg-color;
+   padding: 30px 0; //==========================================padding top
+   width: 100%;
+   &__container {
+      overflow: hidden;
+   }
+   &__body {
+      @media (min-width: 767px) {
+         display: flex;
+         margin: 0 -20px;
+      }
+   }
+   // info + socialmedia
+   &__column {
+      @media (min-width: 767px) {
+         flex: 1 1 50%;
+         padding: 0 20px;
+      }
+   }
+   &__info {
+      @media (min-width: 767px) {
+         display: flex;
+      }
+      @media (max-width: 767px) {
+         margin-bottom: 20px; //============================================margin.bottom
+      }
+   }
+   &__social-media {
+      @media (min-width: 767px) {
+         display: flex;
+         align-self: flex-end;
+         justify-content: flex-end;
+      }
+   }
+}
+
+.info {
+   &__column {
+      @media (min-width: 767px) {
+         flex: 1 1 50%;
+      }
+      @media (max-width: 767px) {
+         padding: 10px 0; //============================================padding all
+         border-top: 1px solid $lines-color;
+      }
+   }
+   &__sports {
+      @media (min-width: 767px) {
+         margin-right: 40px; //===========================marign
+      }
+      & .info__list {
+         @media (min-width: 767px) {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            height: calc(500px - 25vw);
+            max-height: 300px;
+            min-height: 200px;
+         }
+      }
+      & .info__item {
+         @media (min-width: 767px) {
+            width: 35%;
+            margin-right: 25px; // safe padding
+         }
+      }
+   }
+   &__client-info {
+   }
+   //===============
+   //button
+   &__title {
+      @media (min-width: 767px) {
+      }
+      color: white;
+      background-color: transparent;
+      cursor: default;
+      margin-bottom: 30px; //==================================margin
+      //
+      @media (max-width: 767px) {
+         margin: 0;
+         width: 100%;
+         //for icon
+         display: flex;
+         flex-direction: row-reverse;
+         justify-content: space-between;
+         align-items: center;
+      }
+      //----------add arrow
+      @extend .icon-spoller-plus;
+      &::before {
+         @extend %ic;
+         font-size: 40px;
+         display: block;
+         transition: all 0.2s ease 0s;
+         @media (min-width: 767px) {
+            display: none;
+         }
+      }
+      //when active
+      &._active {
+         &::before {
+            transform: rotate(45deg);
+         }
+      }
+   }
+   //ul
+   &__list {
+      @media (max-width: 767px) {
+         max-height: 0; ///=========!important for spoller
+         overflow: hidden;
+         transition: all 0.4s ease 0s;
+      }
+   }
+   //li
+   &__item {
+   }
+   //a
+   &__link {
+      color: white;
+      line-height: 150%;
+   }
+}
+
+.social-media {
+   @media (max-width: 767px) {
+      display: flex;
+      flex-direction: column;
+   }
+   //
+   &__lang {
+      margin-bottom: 10px; //===============================margin.bottom
+      text-align: right;
+      @media (max-width: 767px) {
+         text-align: left;
+         margin-bottom: 10px; //===============================margin.bottom
+      }
+   }
+   &__lang-select {
+      background-color: $footer-bg-color;
+      color: white;
+      text-transform: uppercase;
+   }
+   //
+   &__phone {
+      color: white;
+      display: block;
+      margin-bottom: 10px; //===============================margin.bottom
+      text-align: right;
+      @media (max-width: 767px) {
+         text-align: left;
+         margin-bottom: 20px; //===============================margin.bottom
+      }
+   }
+   //
+   &__adress {
+      //
+      color: white;
+      margin-bottom: 20px; //===================================margin.bottom
+      text-align: right;
+      @media (max-width: 767px) {
+         display: none;
+      }
+   }
+   //
+   &__sm {
+      display: flex;
+      display: block;
+      text-align: right;
+      @media (max-width: 767px) {
+         text-align: left;
+      }
+   }
+   &__icon {
+      font-size: 40px;
+      &:not(:last-child) {
+         padding-right: 10px; //===================================padding right
+      }
+      &::before {
+         color: white;
+      }
+   }
+}

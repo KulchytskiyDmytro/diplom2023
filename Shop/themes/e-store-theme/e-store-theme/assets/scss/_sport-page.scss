@@ -1,0 +1,90 @@
+.sp {
+    &__wrapper {
+        margin-top: 100px; //============margin
+        @media (max-width: 767px) {
+            margin-top: 70px; //============margin
+        }
+    }
+    &__container {
+        overflow: hidden;
+    }
+    &__body {
+        width: 100%;
+        overflow: hidden;
+    }
+    &__filter {
+        @include adaptive-value("margin-bottom", 40, 40);
+    }
+    &__products {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -20px;
+    }
+    & .sub-header {
+        @include adaptive-value("margin-bottom", 20, 20);
+    }
+}
+// filter is in exact-type.scss
+.products {
+    // &__title {
+    //     position: absolute;
+    //     top: -9px;
+    //     left: 50%;
+    //     transform: translateX(-50%);
+    //     background-color: $page-background;
+    //     padding: 0 20px;
+    //     // white-space: nowrap;
+    //     text-align: center;
+    // }
+    &__row {
+        position: relative;
+        border-top: 1px solid $lines-color;
+        border-left: 1px solid $lines-color;
+        border-bottom: 1px solid $lines-color;
+        @include adaptive-value("padding-top", 40, 40);
+        //
+        flex: 1 1 50%;
+        width: 50%;
+        @media (max-width: 992px) {
+            //
+            flex: 1 1 100%;
+            max-width: 100%;
+        }
+        @media (max-width: 767px) {
+        }
+        @media (max-width: 480px) {
+        }
+    }
+    &__column {
+        // margin: 0 -20px;
+        display: flex;
+        flex-wrap: wrap;
+
+        & .product-card {
+            padding: 0 20px;
+            margin-bottom: 40px;
+            //
+            flex: 1 1 50%;
+            max-width: 50%;
+            @media (max-width: 992px) {
+                //
+                flex: 1 1 33.3%;
+                max-width: 33.3%;
+            }
+            @media (max-width: 767px) {
+                //
+                flex: 1 1 50%;
+                max-width: 50%;
+            }
+            @media (max-width: 480px) {
+                //
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+            & .product-card__wrapper {
+                max-width: 100%;
+            }
+        }
+    }
+}

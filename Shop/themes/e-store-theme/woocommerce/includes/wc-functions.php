@@ -8,9 +8,11 @@
 
 
  add_action( 'custom_images', 'custom_show_images', 20 );
+ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
 
+
+ //===================================================================================BREAD CRUMPS====
 remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
-remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
 add_action( 'woocommerce_before_main_content', 'estore_add_breadcrumbs', 20 );
 function estore_add_breadcrumbs(){
 	?>
@@ -19,7 +21,7 @@ function estore_add_breadcrumbs(){
                 <?php woocommerce_breadcrumb(); ?>
             </div>
         </div>
-<?php
+    <?php
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -35,12 +37,13 @@ function estore_output_content_wrapper_start() {
 add_action( 'woocommerce_after_main_content', 'estore_output_content_wrapper_end', 10 );
 function estore_output_content_wrapper_end() {
 	?>
-        
+
         </div>
 	<?php
 }
-
-add_action( 'woocommerce_after_main_content', 'estore_output_content_slider', 5 );
+remove_action( 'woocommerce_after_single_product', 'woocommerce_related_products', 10 );
+add_action( 'estore_after_main_content', 'estore_output_content_slider', 5 );
+add_action( 'estore_after_main_content', 'woocommerce_related_products', 10 );
 function estore_output_content_slider() {
 	?>
         <div class="recomend-slider">
@@ -52,10 +55,10 @@ function estore_output_content_slider() {
                                 <div class="recomend-header__line"></div>
                                 <div class="recomend-header__arrows">
                                     <button
-                                        class="recomend-header__arrow 
+                                        class="recomend-header__arrow
                                         recomend-header__button-prev slider-recomend-header__button-prev icon-slider-right-arrow "></button>
                                     <button
-                                        class="recomend-header__arrow 
+                                        class="recomend-header__arrow
                                         recomend-header__button-next slider-recomend-header__button-next icon-slider-right-arrow "></button>
                                 </div>
                             </div>
@@ -213,6 +216,7 @@ function estore_output_content_slider() {
             </div>
 	<?php
 }
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10 );
 
@@ -238,7 +242,7 @@ function esore_template_single_excerpt() {
 	?>
         <div class="content__characteristic">
                         <div class="characteristic__conteiner">
-                            <div class="characteristic__title subtitle">ХАРАКТЕРИСТИКА И ОПИСАНИЕ </div>
+                            <div class="characteristic__title subtitle">ХАРАКТЕРИСТИКА ТА ОПИС </div>
                             <div class="characteristic__text">
                                 <input type="checkbox" id="show-more">
                                 <div class="characteristic__label smalltext">
@@ -324,7 +328,7 @@ function estore_template_single_info() {
                             <?php else: ?>
                             <?php endif; ?>
 
-                        </div>       
+                        </div>
 	<?php
 }
 

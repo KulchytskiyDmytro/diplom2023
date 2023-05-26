@@ -1,0 +1,206 @@
+.basket-list {
+   &__item {
+      position: relative;
+      // don't change
+      display: flex;
+      justify-content: space-between;
+      ///
+      background-color: white;
+      border-radius: $border-radius;
+      height: 100%;
+   }
+   &__image {
+      display: block;
+      overflow: hidden;
+      position: relative;
+      transition: all 1s ease 0s;
+      //
+      border-radius: $border-radius; //========================experement
+      //
+      width: 200px;
+      height: 200px;
+      flex: 0 0 200px;
+      & img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         object-position: center;
+         position: absolute;
+         top: 0;
+         left: 0;
+      }
+   }
+   &__body {
+      flex: 1 1 auto;
+      padding: 15px 15px 15px 15px;
+      //
+      display: flex;
+      flex-direction: column;
+      // justify-content: space-between;
+   }
+   &__title {
+      color: $black-color;
+      font-family: Oswald;
+      font-style: normal;
+      font-weight: 400; //regular
+      line-height: 110%;
+      margin-bottom: 20px;
+      display: inline-block;
+      width: 90%;
+   }
+   &__forms {
+      display: flex;
+      margin-bottom: 20px;
+      font-family: Roboto Condensed;
+      font-style: normal;
+      font-weight: 400; // light
+
+      line-height: 100%;
+      color: $shade-dark-2;
+   }
+   &__form-color {
+      &::after {
+         content: "|";
+      }
+   }
+   &__form-size {
+      margin-left: 2.5px;
+   }
+   &__price {
+      color: black;
+      font-family: Oswald;
+      font-style: normal;
+      font-weight: 400; //regular
+
+      line-height: 100%;
+   }
+   &__top {
+      flex: 1 1 auto;
+   }
+   &__bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+   }
+   &__quantity {
+      display: flex;
+      align-items: center;
+      //
+      color: black;
+      font-family: Oswald;
+      font-style: normal;
+      font-weight: 400; //regular
+
+      line-height: 100%;
+      &-button {
+         background-color: transparent;
+         width: 20px;
+         height: 20px;
+         font-size: 20px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      }
+      &-increase {
+         margin-left: 5px;
+      }
+      &-decrease {
+         margin-right: 5px;
+      }
+   }
+   &__delete {
+      position: absolute;
+      top: 2%;
+      right: 2%;
+      //font-family: Roboto Condensed;
+      font-style: bold;
+      font-weight: 400;
+      font-size: 45px;
+      line-height: 100%;
+      transform: rotateZ(45deg);
+      color: $black-color;
+   }
+}
+
+.basket {
+   &__container {
+   }
+   &__content {
+   }
+   &__order {
+      padding-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      a:first-child {
+         background-color: $black-color;
+      }
+   }
+   &__bth {
+      width: 360px;
+      @media (max-width: 1400px) {
+         width: 360px / 1400px * 100vw;
+      }
+   }
+   &__summ {
+      display: flex;
+      justify-content: space-between;
+   }
+   &__body {
+      margin: 0 -20px 0 -20px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+   }
+   &__el {
+      flex: wrap;
+      width: 50%;
+      padding: 20px;
+      @media (max-width: 992px) {
+         width: 100%;
+      }
+   }
+}
+
+@media (max-width: 768px) {
+   .basket__order {
+      display: flex;
+      flex-direction: column;
+   }
+   .basket__summ {
+      width: 100%;
+      margin-bottom: 15px;
+   }
+   .basket__bth {
+      width: 100%;
+      margin-bottom: 15px;
+   }
+   .basket__bth:nth-child(2) {
+      order: 1;
+   }
+   .basket__bth:nth-child(1) {
+      order: 2;
+   }
+   .basket__bth:nth-child(3) {
+      order: 3;
+   }
+}
+@media (max-width: 425px) {
+   .basket-list {
+      max-height: 130px;
+      &__image {
+         width: 120px;
+         height: 120px;
+         flex: 0 0 120px;
+      }
+      &__body {
+         max-height: 130px;
+      }
+   }
+   .basket__el {
+      max-height: 130px;
+   }
+   .basket-list__forms {
+      margin-bottom: 20px;
+   }
+}

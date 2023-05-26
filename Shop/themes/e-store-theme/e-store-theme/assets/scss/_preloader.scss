@@ -1,0 +1,136 @@
+//===================================================================
+// Preloader
+.preloader {
+  &.loaded {
+    .preloader__wrapper {
+      opacity: 0;
+      visibility: none;
+      pointer-events: none;
+      transform: translateX(-200%);
+    }
+    .preloader__body {
+    }
+  }
+}
+.preloader__wrapper {
+  z-index: 99999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: $page-background;
+  width: 100vw;
+  height: 100vh;
+  transition: opacity 0.4s ease 0s, transform 0s ease 1.4s;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+.preloader__body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+$logo-width: 25px;
+$logo-height: 25px;
+$bounce_height: $logo-height * 2;
+.ball {
+  position: relative;
+  overflow: hidden;
+  width: $logo-width;
+  height: $logo-height;
+  background-color: $accent-color;
+  border-radius: 50%;
+  border: $logo-height / 15 solid white;
+  // transform: rotate(20deg);
+  &__lines {
+    //right line
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%) rotate(-13deg);
+      transform-origin: 0 0;
+      left: -132%;
+      width: 150%;
+      height: 150%;
+      border-radius: 50%;
+      background-color: transparent;
+      border: $logo-height / 15 solid rgb(255, 255, 255);
+    }
+    //left line
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%) rotate(13deg);
+      transform-origin: 0 0;
+      right: -132%;
+      width: 150%;
+      height: 150%;
+      border-radius: 50%;
+      background-color: transparent;
+      border: $logo-height / 15 solid rgb(255, 255, 255);
+    }
+    &-1 {
+      //horizontal line
+      &::after {
+        content: "";
+        position: absolute;
+        top: 15%;
+        left: 50%;
+        transform: translateX(-50%) rotate(7deg);
+        transform-origin: 0 0;
+        width: 350%;
+        height: 350%;
+        border-radius: 50%;
+        background-color: transparent;
+        border: $logo-height / 15 solid white;
+      }
+      //vertical line
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 85%;
+        transform: translateY(-50%) rotate(10deg);
+        transform-origin: 0 0;
+        width: 500%;
+        height: 500%;
+        border-radius: 50%;
+        background-color: transparent;
+        border: $logo-height / 15 solid rgb(255, 255, 255);
+      }
+    }
+  }
+}
+.bounceball {
+  position: relative;
+  display: inline-block;
+  height: $bounce_height;
+  width: $logo-width;
+  & .ball {
+    position: absolute;
+    display: block;
+    top: 0;
+    // width and height is in _logo
+    transform-origin: 50%;
+    animation: bounce 500ms alternate infinite ease;
+  }
+}
+@keyframes bounce {
+  0% {
+    top: $bounce_height;
+    height: 25%;
+    border-radius: 50% 50% 25% 25%;
+    transform: scaleX(1.75);
+  }
+  35% {
+    height: $logo-height;
+    border-radius: 50%;
+    transform: scaleX(1);
+  }
+  100% {
+    top: 0;
+  }
+}
