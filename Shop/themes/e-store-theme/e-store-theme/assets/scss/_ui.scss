@@ -1,0 +1,334 @@
+//===HOVER class="hover" add this to elements you want to add hover effect
+// $hover-color: #e46000;
+//===================================================================
+//===================================================================
+//===================================================================
+//=====================font sizes.
+//===================================================================
+//===================================================================
+.smalltext {
+   font-family: Roboto Condensed;
+   font-style: normal;
+   font-weight: 400; // light
+   font-size: 12px;
+   line-height: 100%;
+}
+.text {
+   color: black;
+   font-family: Roboto Condensed;
+   font-style: normal;
+   font-weight: 400; //regular
+   font-size: 14px;
+   line-height: 100%;
+}
+.subtitle {
+   color: black;
+   font-family: Oswald;
+   font-style: normal;
+   font-weight: normal;
+   font-size: 17px;
+   line-height: 100%;
+}
+.title {
+   font-family: Oswald;
+   font-style: normal;
+   font-weight: 300;
+   font-size: 20px;
+   line-height: 100%;
+}
+.smallheader {
+   color: black;
+   font-family: Roboto Condensed;
+   font-style: normal;
+   font-weight: normal;
+   font-size: 24px;
+   line-height: 100%;
+}
+.header {
+}
+.midheader {
+   color: black;
+   font-family: Roboto Condensed;
+   font-style: normal;
+   font-weight: normal;
+   font-size: 48px;
+   line-height: 100%;
+}
+.largeheader {
+}
+.link {
+   font-family: Roboto Condensed;
+   font-style: normal;
+   font-weight: 400; // light
+   font-size: 12px;
+   line-height: 100%;
+   text-decoration: underline;
+   color: black;
+}
+//=================================================================
+//===================================================================
+//===================================================================
+//=======================================================(buttons)
+//===================================================================
+//===================================================================
+._button {
+   //
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   transition: all 0.3s ease 0s;
+   @include adaptive-value("min-height", 48, 48);
+   padding: 0 20px;
+   width: auto;
+   //
+   border-radius: $border-radius; //========================experement
+   //
+   background-color: $accent-color;
+   //
+   color: white;
+   font-family: Oswald;
+   font-style: normal;
+   font-weight: normal;
+   font-size: 14px;
+   line-height: 100%;
+   @media (any-hover: hover) {
+      &:hover {
+         // color: black;
+         // background-color: white;
+      }
+   }
+}
+//===================================================================
+//===================================================================
+//===================================================================
+//=====================================================(hover links)
+//===================================================================
+//===================================================================
+._hover {
+   transition: color 0.1s ease 0s;
+   @media (any-hover: hover) {
+      &:hover {
+         color: $hover-color;
+      }
+      &:hover::before {
+         color: $hover-color;
+      }
+   }
+}
+//===================================================================
+//===================================================================
+//===================================================================
+//==================================== arrow in katalog (ICONS)
+//===================================================================
+//===================================================================
+.katalog__link,
+.sub-katalog__link {
+   display: flex;
+   align-items: center;
+   @extend .icon-link-arrow-right;
+   // change to after in icon-font.scss/
+   &::after {
+      @extend %ic;
+      font-size: inherit;
+      display: none;
+      opacity: 0;
+      transform: scale(0) translateX(-10px);
+      transform-origin: 0 50%;
+      //
+      transition: all 0.5s ease 0.05s;
+   }
+   @media (any-hover: hover) {
+      &:hover::after {
+         opacity: 1;
+         transform: scale(1) translateX(5px);
+      }
+      &::after {
+         display: block;
+      }
+   }
+   @media (max-width: 767px) {
+      &::after {
+         display: block;
+         opacity: 1;
+         transform: scale(1) translateX(5px);
+      }
+   }
+   //before for links in swipe menu
+}
+//=================================arrow for buttons in drop menu
+.arrow-right-drop {
+   display: flex;
+   align-items: center;
+   flex-direction: row-reverse;
+   justify-content: space-between;
+   @media (min-width: 767px) {
+      display: none;
+      &.menu__katalog {
+         display: block;
+         &::before {
+            display: none;
+         }
+      }
+   }
+   @media (max-width: 767px) {
+      flex: 1 1 auto;
+      background-color: transparent;
+   }
+   @extend .icon-menu-arrow-right;
+   &::before {
+      @extend %ic;
+      float: right;
+      font-size: 40px;
+   }
+}
+.goback {
+   @media (max-width: 767px) {
+      border-top: 1px solid $lines-color;
+      border-bottom: 1px solid $lines-color;
+      position: relative;
+   }
+   @media (min-width: 767px) {
+      display: none;
+   }
+   &__link {
+      width: 100%;
+      background-color: transparent;
+      color: black;
+      //
+      display: flex;
+      align-items: center;
+      @extend .icon-menu-arrow-right;
+      &::before {
+         @extend %ic;
+         margin-right: 10px;
+         font-size: 40px;
+         transform: rotateZ(180deg);
+      }
+      &::after {
+         display: none;
+      }
+   }
+}
+//===================================================================
+//===================================================================
+//========================================================(color and size form)
+//===================================================================
+//===================================================================
+.form {
+   &__color-label {
+      display: block;
+      cursor: pointer;
+      position: relative;
+      user-select: none;
+      overflow: hidden;
+      & input {
+         display: none;
+         &:checked {
+            & ~ .form__color-checkmark {
+               // border: 2px solid #e46000;
+               box-shadow: 0px 0px 0px 1.5px $accent-color;
+            }
+         }
+      }
+      &:not(:last-child) {
+         margin-right: 15px;
+      }
+      margin-bottom: 7px;
+      width: 21px;
+      height: 21px;
+      // border-radius: $border-radius;
+      border-radius: 50%;
+      background-color: $shade-light-1;
+      @media (max-width: 767px) {
+         width: 31px;
+         height: 31px;
+      }
+   }
+   &__color-checkmark {
+      // display: inline-block;
+      display: block;
+      position: absolute;
+      // width: 90%;
+      // height: 90%;
+      top: 2.5px;
+      bottom: 1.5px;
+      left: 2.5px;
+      right: 1.5px;
+      // border-radius:  $border-radius;
+      border-radius: 50%;
+   }
+   //
+   &__sizes-label {
+      display: block;
+      cursor: pointer;
+      position: relative;
+      user-select: none;
+      & input {
+         display: none;
+         &:checked {
+            & ~ .form__sizes-checkmark {
+               // border: 2px solid #e46000;
+               box-shadow: 0px 0px 0px 1.5px $accent-color inset;
+            }
+         }
+      }
+      &:not(:last-child) {
+         margin-right: 15px;
+      }
+      margin-bottom: 7px;
+      width: 21px;
+      height: 21px;
+      border-radius: $border-radius;
+      background-color: $shade-light-1;
+      @media (max-width: 767px) {
+         width: 31px;
+         height: 31px;
+      }
+   }
+   &__sizes-checkmark {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      right: 0%;
+      bottom: 0%;
+      border-radius: $border-radius;
+      //
+      font-family: Oswald;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 100%;
+   }
+}
+
+//===================================================================
+//===================================================================
+//========================================================(LINKS)
+//===================================================================
+//===================================================================
+// all links in mobile
+// body._touch {
+//    @media (max-width: 767px) {
+//       .header-main__menu .menu__body {
+//          // @media (max-width: 767px) {
+//          a {
+//             text-decoration: underline;
+//             text-decoration-skip-ink: auto;
+//             text-decoration-thickness: 1.85px;
+//             text-decoration-color: #2e2e2e;
+//          }
+//          // }
+//       }
+//       .footer__info {
+//          & a {
+//             // @media (max-width: 767px) {
+//             text-decoration: underline;
+//             // }
+//          }
+//       }
+//    }
+// }

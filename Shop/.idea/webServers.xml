@@ -2,7 +2,11 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
+<<<<<<< HEAD
+      <webServer id="1e04675c-147d-4324-83d4-b55e87863bf6" name="Shopdip" url="http://da1.v.fozzy.com">
+=======
       <webServer id="9e693abb-e9da-4a79-b0ba-dd1a52fbb23c" name="Fozzy" url="http://da1.v.fozzy.com">
+>>>>>>> 654133dc97e5d93da2605ca68507389557593e27
         <fileTransfer host="da1.v.fozzy.com" port="21">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />

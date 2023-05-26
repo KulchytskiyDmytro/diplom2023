@@ -12,20 +12,17 @@
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
-<head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="http://gmpg.org/xfn/11">
+    <head>
+        <meta charset="<?php bloginfo( 'charset' ); ?>">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="profile" href="http://gmpg.org/xfn/11">
+        <?php wp_head(); ?>
+    </head>
 
-	<?php wp_head(); ?>
-</head>
 
-
-<body <?php body_class(); ?>>
-<div id="page" class="site">
-
-	
-<header class="header">
+    <body <?php body_class(); ?>>
+<!--    <div id="page" class="site">-->
+        <header class="header">
         <div class="header__wrapper">
             <div class="header-color"></div>
             <div class="header-main">
@@ -58,8 +55,8 @@
                                     <!-- the same as above  <a href="" class="cart__icon icon-cart _hover"></a> -->
                                     <div class="cart__body">
                                         <div class="cart__up">
-                                            <div class="cart__title subtitle">КОРЗИНА</div>
-                                            <?php display_products_in_cart() ?>
+                                            <div class="cart__title subtitle">КОШИК</div>
+                                            <?php  display_products_in_cart() ?>
                                         </div>
                                         <div class="cart__down">
                                              <div class="cart__total subtitle">
@@ -112,6 +109,4 @@
             </div>
         </div>
 </header>
-	
-
-<div id="content" class="site-content">
+<!--    <div id="content" class="site-content">-->

@@ -1,0 +1,544 @@
+.product-page {
+    // overflow: hidden;
+
+    &__container {
+    }
+
+    &__content {
+        overflow: hidden;
+    }
+}
+
+// header is in _repeats
+
+//===================================================================================================
+.content {
+    // width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between; //
+    margin: 0 -20px;
+    // @include adaptive-value("max-height", 500, 400);
+    //
+    @media (max-width: 1200px) {
+        flex-wrap: wrap;
+    }
+    @media (max-width: 992px) {
+    }
+    @media (max-width: 767px) {
+    }
+    &__characteristic {
+        // min-height: 500px;
+        max-height: 500px;
+        position: relative;
+        flex: 1 1 25%;
+        max-width: 25%; /// for slider
+        padding: 0 20px;
+        //
+        //
+        @media (max-width: 1200px) {
+            flex: 1 1 100%;
+            min-width: 100%;
+            max-width: 100%;
+            order: 3;
+            max-height: auto;
+        }
+        @media (max-width: 992px) {
+        }
+        @media (max-width: 767px) {
+            margin-bottom: 36px;
+        }
+    }
+    &__product-sliders {
+        // min-height: 500px;
+        max-height: 500px;
+        position: relative;
+        flex: 1 1 50%;
+        padding: 0 20px;
+        max-width: 50%; /// for slider
+        //
+        // overflow: hidden;
+        display: flex;
+        @media (max-width: 1200px) {
+            flex: 1 1 50%;
+            max-width: 60%; /// for slider
+            min-width: 60%;
+            @include adaptive-value("margin-bottom", 36, 26);
+        }
+        @media (max-width: 992px) {
+            flex: 1 1 60%;
+            max-width: 60%; /// for slider
+            min-width: 60%;
+            @include adaptive-value("max-height", 598.84, 170.74);
+        }
+        @media (max-width: 767px) {
+            flex: 1 1 100%;
+            max-width: 100%;
+            min-width: 100%;
+            @include adaptive-value("max-height", 1028, 234);
+        }
+    }
+    &__buy {
+        // min-height: 500px;
+        position: relative;
+        flex: 1 1 25%;
+        max-width: 25%;
+        padding: 0 20px;
+        //
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        //
+        @media (max-width: 1200px) {
+            flex: 1 1 50%;
+            max-width: 40%;
+            min-width: 40%;
+        }
+        @media (max-width: 992px) {
+            flex: 1 1 30%;
+            max-width: 40%;
+            min-width: 40%;
+        }
+        @media (max-width: 767px) {
+            flex: 1 1 100%;
+            max-width: 100%;
+            min-width: 100%;
+            margin-bottom: 0px;
+        }
+    }
+}
+//=======================characteristic.
+.characteristic {
+    &__conteiner {
+        height: 100%;
+        width: 100%;
+        // overflow: auto;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        @media (max-width: 767px) {
+            padding: 10px 0; //============================================padding all
+            border-top: 1px solid $lines-color;
+        }
+    }
+    &__title {
+        @include adaptive-value("padding-bottom", 7, 7);
+        //----------add arrow
+        &::before {
+            display: none;
+        }
+        @media (max-width: 767px) {
+            &::before {
+                display: block;
+            }
+        }
+        @media (max-width: 767px) {
+            margin: 0;
+            width: 100%;
+            //for icon
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            align-items: center;
+        }
+        @extend .icon-spoller-plus;
+        &::before {
+            @extend %ic;
+            font-size: 40px;
+            display: block;
+            transition: all 0.2s ease 0s;
+            @media (min-width: 767px) {
+                display: none;
+            }
+        }
+        //when active
+        &._active {
+            &::before {
+                transform: rotate(45deg);
+            }
+        }
+    }
+    &__text {
+        @media (min-width: 767px) {
+            padding-right: 5px;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        @media (max-width: 767px) {
+            padding-right: 0px;
+            overflow: hidden;
+            max-height: 0;
+            transition: all 0.4s ease 0s;
+        }
+    }
+    //=============show more effect
+    &__label {
+        @media (min-width: 767px) {
+            overflow: hidden;
+            max-width: auto;
+            display: -webkit-box;
+            -webkit-line-clamp: 10;
+            -webkit-box-orient: vertical;
+        }
+        @media (max-width: 1200px) {
+            -webkit-line-clamp: 2;
+        }
+        @media (max-width: 767px) {
+        }
+    }
+    &__show-more {
+        @media (min-width: 767px) {
+            display: block;
+            position: relative;
+            height: 15px;
+            width: 100%;
+            &::after {
+                position: absolute;
+                right: 0;
+                cursor: pointer;
+                content: "more";
+                color: grey;
+                text-decoration: underline;
+            }
+        }
+        @media (max-width: 767px) {
+            display: none;
+        }
+    }
+}
+#show-more {
+    display: none;
+    @media (min-width: 767px) {
+        &:checked {
+            & ~ .characteristic__label {
+                overflow: visible;
+                width: auto;
+                display: -webkit-box;
+                -webkit-line-clamp: 9999;
+                -webkit-box-orient: vertical;
+            }
+            & ~ .characteristic__show-more::after {
+                content: "less";
+            }
+        }
+    }
+}
+//==============================slider.
+.main-photo {
+    position: relative;
+    flex: 1 1 83.6%;
+    max-width: 83.6%; /// for slider
+    padding: 0 8.5px 0 0px;
+    // padding: 0 1px 0 0px;
+
+    &__slider {
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+        max-width: 100%;
+    }
+    &__wrapper {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        transform: translate3d(0px, 0, 0);
+        //
+        // flex-direction: column;
+    }
+    &__slide {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        // visibility: hidden; // in active visiable
+    }
+    &__image {
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+        //
+        border-radius: $border-radius; //========================experement
+        //
+        //
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            //
+        }
+    }
+}
+.swiper-slide-active {
+    z-index: 3;
+    // visibility: visible;
+}
+//when zoomed
+// ._zoomed {
+//     //.swiper-slide-custom
+//     cursor: move;
+// }
+// //add this to zoom
+// .zoom-container {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     text-align: center;
+// }
+.submain-photo {
+    position: relative;
+    flex: 1 1 16.6%;
+    max-width: 16.6%;
+    //padding
+    padding: 0 0px 0 31.5px;
+    @media (max-width: 992px) {
+        padding: 0 0px 0 15px;
+    }
+    @media (max-width: 767px) {
+        @include adaptive-value("padding-left", 35, 0);
+    }
+    // padding: 0 0px 0 8.5px;
+
+    &__slider {
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+    }
+    &__wrapper {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        //
+        // display: flex;
+        flex-direction: column;
+        transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+    }
+    &__slide {
+        flex-shrink: 0;
+        user-select: none;
+        transition: all 0.4s ease 0s;
+        position: relative;
+        width: 100%;
+        @include adaptive-value("height", 80, -22);
+        overflow: hidden;
+        cursor: pointer;
+        @media (max-width: 992px) {
+            @include adaptive-value("height", 114.65, 12.69);
+        }
+        @media (max-width: 767px) {
+            @include adaptive-value("height", 189, 47.55);
+        }
+    }
+    &__image {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        //
+        border-radius: $border-radius; //========================experement
+        //
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+    &:hover {
+        .submain-photo__scrollbar {
+            opacity: 1;
+        }
+    }
+    &__navigations {
+        position: absolute;
+        height: 100%;
+        top: 0;
+        left: 0%;
+        @include adaptive-value("left", 15, 0);
+        overflow: hidden;
+        //
+        border-radius: 1.5px; //========================experement
+        //
+    }
+    &__scrollbar {
+        opacity: 0;
+        transition: all 0.4s ease 0s;
+        height: 100%;
+        background-color: $shade-light-1;
+        width: 2px;
+    }
+}
+.swiper-scrollbar-drag {
+    background-color: $black-color;
+    width: 1.5px;
+    border-radius: 1.5px;
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+//====================================buy.
+.buy {
+    &__text-container.moved {
+        width: 100%;
+    }
+    //===============================================
+    &__title {
+        padding-bottom: 7px;
+        @media (max-width: 767px) {
+            padding-bottom: 20px;
+        }
+    }
+    &__lot {
+        @include adaptive-value("padding-bottom", 30, 16);
+        color: #a1a1a1;
+    }
+    //============================================
+    &__form {
+        @include adaptive-value("padding-bottom", 10, 10);
+        @media (max-width: 1200px) {
+        }
+    }
+    &__buy-in-click-button {
+        background-color: $accent-color;
+        color: white;
+        @include adaptive-value("min-height", 40, 30);
+        @include adaptive-value("min-width", 150, 100);
+        @include adaptive-value("margin-bottom", 30, 30);
+        @media (max-width: 767px) {
+            min-width: 100%;
+        }
+    }
+    //===================================================
+    &__info-container {
+    }
+    &__info {
+        padding: 10px 0; //============================================padding all
+        border-top: 1px solid $lines-color;
+    }
+    &__info-title {
+        // add +
+        display: flex;
+        justify-content: space-between;
+        &::after {
+            @extend %ic;
+            font-size: 30px;
+            display: block;
+            transition: all 0.2s ease 0s;
+            @media (max-width: 767px) {
+                display: none;
+            }
+        }
+        @media (max-width: 767px) {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            margin: 0;
+            width: 100%;
+            align-items: center;
+        }
+        @extend .icon-spoller-plus;
+        &::before {
+            @extend %ic;
+            font-size: 40px;
+            display: block;
+            transition: all 0.2s ease 0s;
+            @media (min-width: 767px) {
+                display: none;
+            }
+        }
+        //when active
+        &._active {
+            &::before {
+                transform: rotate(45deg);
+            }
+        }
+    }
+    &__info-content {
+        // @media (min-width: 767px) {
+        //     display: flex;
+        //     flex-direction: row-reverse;
+        //     justify-content: space-between;
+        //     &::before {
+        //         font-size: 30px;
+        //     }
+        // }
+        @media (max-width: 767px) {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease 0s;
+        }
+    }
+    &__info-link {
+    }
+    &__call {
+    }
+    &__delivery {
+    }
+    &__price {
+        //
+        padding-bottom: 30px;
+        color: $text-color;
+        @include adaptive-value("padding-right", 40, 16);
+        @media (max-width: 767px) {
+            @include adaptive-value("margin-bottom", 15, 10);
+        }
+    }
+}
+.form {
+    //==================================color
+    &__color {
+        display: flex;
+        // padding-bottom: 7px;
+    }
+
+    //======================sizes
+    &__sizes {
+        display: flex;
+        @include adaptive-value("padding-bottom", 30, 16);
+        @media (max-width: 767px) {
+            @include adaptive-value("padding-bottom", 46, 36);
+        }
+    }
+    //==================================button
+    &__buy-button {
+        color: white;
+        background-color: black;
+        @include adaptive-value("min-height", 40, 30);
+        @include adaptive-value("min-width", 150, 100);
+        @media (max-width: 767px) {
+            width: 100%;
+        }
+    }
+}
+
+//===============================================================================================================
+//recomend slider in repeats
+
+//================================================================================================================
+/* Track */
+.characteristic__text::-webkit-scrollbar-track {
+    background-color: $shade-light-1;
+    border-radius: 1.5px;
+    -webkit-border-radius: 1.5px;
+    -moz-border-radius: 1.5px;
+    -ms-border-radius: 1.5px;
+    -o-border-radius: 1.5px;
+}
+/* Handle */
+.characteristic__text::-webkit-scrollbar-thumb {
+    background: $black-color;
+    border-radius: 1.5px;
+    -webkit-border-radius: 1.5px;
+    -moz-border-radius: 1.5px;
+    -ms-border-radius: 1.5px;
+    -o-border-radius: 1.5px;
+}
+/* Handle on hover */
+.characteristic__text::-webkit-scrollbar-thumb:hover {
+}
+.characteristic__text::-webkit-scrollbar {
+    width: 2px;
+}
+// .characteristic__text::-webkit-scrollbar-button {
+//     display: none;
+// }

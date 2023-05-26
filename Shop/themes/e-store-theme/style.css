@@ -12,15 +12,40 @@ Version: 1.0.0
 
 @import "assets/css/style.css";
 
+
+body.error404 .site-main{
+	margin-top: 0;
+}
+
+
+/*fixing bread crumb wrap*/
+.sub-header {
+	padding-left: 0;
+padding-right: 0;
+}
+.woocommerce-breadcrumb {
+	line-height: 150%;
+}
+.woocommerce-breadcrumb a {
+	line-height: 150%;
+}
+.sub-header__title {
+	flex-wrap: nowrap;
+}
+.content {
+	margin-bottom: 50px;
+}
+
+
+
 .reset_variations{
 	display: none;
 }
-
 .variation div{
 	margin-bottom: 10px;
 }
 
-
+/*block in product page after buy button. Problem: reduce width*/
 .buy__info{
 	position: relative;
 }
@@ -28,7 +53,10 @@ Version: 1.0.0
 	max-width: 90%;
 }
 
-
+/*search form. add close button */
+.search__result-close img {
+	cursor: pointer;
+}
 .search__form{
 	align-items: center;
 }
