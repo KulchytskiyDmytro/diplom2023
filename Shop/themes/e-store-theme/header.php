@@ -43,7 +43,14 @@
                             </div>
                             <div class="header-main__account">
                                 <div class="account">
-                                    <a href="#popup-account" class="account__icon icon-storage _hover popup-link"></a>
+                                    <?php
+                                    if ( is_user_logged_in() ) {
+                                        echo '<a href="' . esc_url( wc_get_account_endpoint_url( '/' ) ) . '" class="account__icon icon-storage _hover "></a>';
+                                    } else {
+                                        echo '<a href="#popup-account" class="account__icon icon-storage _hover popup-link"></a>';
+                                    }
+                                    ?>
+
                                 </div>
                             </div>
                             <div class="header-main__cart">

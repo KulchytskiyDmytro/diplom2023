@@ -18,8 +18,10 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+?>
 
-if ( $upsells ) : ?>
+<section class="up-sells upsells products">
+<?php if ( $upsells ) : ?>
 
 	<section class="up-sells upsells products">
 		<?php
@@ -47,7 +49,7 @@ if ( $upsells ) : ?>
 		<?php woocommerce_product_loop_end(); ?>
 
 	</section>
-
+    </section>
 	<?php
 endif;
 

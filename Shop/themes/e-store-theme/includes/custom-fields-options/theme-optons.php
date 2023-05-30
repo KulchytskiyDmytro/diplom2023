@@ -32,8 +32,12 @@ Container::make( 'theme_options', 'Theme Option' )
 		Field::make( 'text', 'crb_email', 'Notification Email' ),
 		Field::make( 'text', 'crb_phone', 'Phone Number' ),
 		Field::make( 'text', 'crd_adress', 'Adress' ),
-	) );
-	
+	) )
+    ->add_tab( 'index', array(
+        Field::make('image', 'crb_image_field', 'Index image'),
+        Field::make('text', 'crd_image_text', 'Index image text' ),
+        Field::make('text', 'crd_image_subtext', 'Index image subtext' ),
+    ) );
 
 
 

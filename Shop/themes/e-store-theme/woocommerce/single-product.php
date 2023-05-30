@@ -31,16 +31,16 @@ get_header( 'shop' ); ?>
 		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
 		 * @hooked woocommerce_breadcrumb - 20
 		 */
-		//====================================================bread crumps
+		//====================================================OPEN "product-page__container container"
+        //==================================================== add BREADCRUMPS
 		do_action( 'woocommerce_before_main_content' );
 	?>
 
 
 
-	<?php while ( have_posts() ) : the_post(); //=========================================== main content (slider, desc, prod details )it is content-single-product ?>
-
+	<?php while ( have_posts() ) : the_post();
+    //============================================ (slider, desc, prod details )it is content-single-product ?>
 		<?php wc_get_template_part( 'content', 'single-product' ); ?>
-
 	<?php endwhile; // end of the loop. ?>
 
 
@@ -50,9 +50,11 @@ get_header( 'shop' ); ?>
 		 *
 		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
 		 */
+        //================================================ CLOSE "product-page__container container"
 		do_action( 'woocommerce_after_main_content' );
+    ?>
 
-?>
+
 
 	<!-- removed in wc-functions-remove -->
 	<?php
@@ -63,8 +65,11 @@ get_header( 'shop' ); ?>
 		 */
 		do_action( 'woocommerce_sidebar' );
 
-?>
+    ?>
 
-<?php get_footer( 'shop' );
+
+
+
+    <?php get_footer( 'shop' );
 
 /* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */

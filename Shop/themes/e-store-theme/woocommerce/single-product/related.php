@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( $related_products ) : ?>
 
     <div class="recomend-slider">
-        <div class="recomend-slider__container container">
+        <div class="recomend-slider__container">
             <div class="recomend-slider__body">
 
 		<?php
@@ -56,7 +56,7 @@ if ( $related_products ) : ?>
 
                                 setup_postdata( $GLOBALS['post'] =& $post_object ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
 
-                                wc_get_template_part( 'content', 'product' ); // link to wp-content/plugins/woocommerce/templates/content-product.php
+                                wc_get_template_part( 'content', 'recomend' ); // link to woocommerce/content-recomend.php
                                 ?>
 
                         <?php endforeach; ?>

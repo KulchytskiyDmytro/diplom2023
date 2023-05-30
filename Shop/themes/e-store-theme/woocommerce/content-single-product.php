@@ -22,75 +22,103 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<?php
+
+    <?php
+    //=============================================================== PASSWORD form
 	/**
 	 * woocommerce_before_single_product hook.
 	 *
 	 * @hooked wc_print_notices - 10
 	 */
 	//  do_action( 'woocommerce_before_single_product' );
-
 	 if ( post_password_required() ) {
 	 	echo get_the_password_form();
 	 	return;
 	 }
-?>
+     //===========================================================================
+    ?>
 
 
-<div id="product-<?php the_ID(); ?>" <?php post_class(); ?>>
 
+
+<!--    // =================================================== OPEN "product-page__content"-->
+    <div id="product-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php
+    //===========================================================OPEN "content"======
+    //================================================Create "content__characteristic"
+    //===================================================Create "content__product-sliders"
 		/**
 		 * woocommerce_before_single_product_summary hook.
 		 *
 		 * @hooked woocommerce_show_product_sale_flash - 10
 		 * @hooked woocommerce_show_product_images - 20
 		 */
-		//============================================================================== slider + description
 		do_action( 'woocommerce_before_single_product_summary' );
-
+    //========================================================================
 	?><!-- .beforesummary -->
 
 
-	 
-	<div class="content__buy">
-		<div calss="buy__top"> 
-		<?php
-			/**
-			 * woocommerce_single_product_summary hook.
-			 *
-			 * @hooked woocommerce_template_single_title - 5
-			 * @hooked woocommerce_template_single_rating - 20
-			 * @hooked woocommerce_template_single_price - 20
-			 * @hooked woocommerce_template_single_excerpt - 20
-			 * @hooked woocommerce_template_single_add_to_cart - 30
-			 * @hooked woocommerce_template_single_meta - 10
-			 * @hooked woocommerce_template_single_sharing - 50
-			 * @hooked WC_Structured_Data::generate_product_data() - 60
-			 */
-			do_action( 'woocommerce_single_product_summary');
-			
-		
-		?>
-		</div>
-		<?php
-			do_action( 'woocommerce_single_product_summary-custom' );
-		?>
-	</div>
+<!--	 //========================================================Create "content__buy"-->
+	    <div class="content__buy">
+		    <div calss="buy__top">
+                <?php
+                //======================================================="buy__top"
+                    /**
+                     * woocommerce_single_product_summary hook.
+                     *
+                     * @hooked woocommerce_template_single_title - 5
+                     * @hooked woocommerce_template_single_rating - 20
+                     * @hooked woocommerce_template_single_price - 20
+                     * @hooked woocommerce_template_single_excerpt - 20
+                     * @hooked woocommerce_template_single_add_to_cart - 30
+                     * @hooked woocommerce_template_single_meta - 10
+                     * @hooked woocommerce_template_single_sharing - 50
+                     * @hooked WC_Structured_Data::generate_product_data() - 60
+                     */
+                    do_action( 'woocommerce_single_product_summary');
+
+                ?>
+		    </div>
+            <?php
+            //======================================================="buy__info-container"
+                do_action( 'woocommerce_single_product_summary-custom' );
+            ?>
+	    </div>
 	<!-- .summary -->
 
-	<?php
-		/**
-		 * woocommerce_after_single_product_summary hook.
-		 *
-		 * @hooked woocommerce_output_product_data_tabs - 10
-		 * @hooked woocommerce_upsell_display - 15
-		 * @hooked woocommerce_output_related_products - 20
-		 */
-		do_action( 'woocommerce_after_single_product_summary' );
-	?>
 
-</div><!-- #product-<?php the_ID(); ?> -->
-<?php do_action('estore_after_main_content');  ?> <!--recomend silder-->
-<?php do_action( 'woocommerce_after_single_product' ); ?>
+
+
+
+<!--    // =================================================== CLOSE "content"-->
+</div><!-- #product-<?php // the_ID(); ?> -->
+<!--    // =================================================== CLOSE "product-page__content"-->
+</div>
+
+
+
+<!--//========================================================== recomend slider call-->
+<?php
+/**
+ * woocommerce_after_single_product_summary hook.
+ *
+ * @hooked woocommerce_output_product_data_tabs - 10
+ * @hooked woocommerce_upsell_display - 15
+ * @hooked woocommerce_output_related_products - 20
+ */
+do_action( 'woocommerce_after_single_product_summary' );
+// woocommerce_output_product_data_tabs disabled
+// woocommerce_upsell_display disabled  in wc-function-remove
+?>
+
+
+<?php //do_action('estore_after_main_content');  ?>
+<!--recomend silder-->
+<?php //do_action( 'woocommerce_after_single_product' ); ?>
+
+
+<!--============================================================REVIEWS-->
+<?php
+//    wc_get_template( '/single-product-reviews.php' );
+?>
 

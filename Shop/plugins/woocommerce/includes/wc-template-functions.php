@@ -1168,7 +1168,9 @@ if ( ! function_exists( 'woocommerce_template_loop_product_title' ) ) {
 	 * Show the product title in the product loop. By default this is an H2.
 	 */
 	function woocommerce_template_loop_product_title() {
-		echo '<h2 class="' . esc_attr( apply_filters( 'woocommerce_product_loop_title_classes', 'woocommerce-loop-product__title' ) ) . '">' . get_the_title() . '</h2>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+        global $product;
+        $link = apply_filters( 'woocommerce_loop_product_link', get_the_permalink(), $product );
+		echo '<a href="' . esc_url( $link ) . '" class="product-card__title subtitle _hover">' . get_the_title() . '</a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
 if ( ! function_exists( 'woocommerce_template_loop_category_title' ) ) {
@@ -1386,8 +1388,13 @@ if ( ! function_exists( 'woocommerce_template_loop_product_thumbnail' ) ) {
 	 * Get the product thumbnail for the loop.
 	 */
 	function woocommerce_template_loop_product_thumbnail() {
-		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+        global $product;
+
+        $link = apply_filters( 'woocommerce_loop_product_link', get_the_permalink(), $product );
+
+        echo '<a href="' . esc_url( $link ) . '" class="product-card__image IEimg">';
 		echo woocommerce_get_product_thumbnail();
+        echo '</a>';
 	}
 }
 if ( ! function_exists( 'woocommerce_template_loop_price' ) ) {
@@ -2130,7 +2137,7 @@ if ( ! function_exists( 'woocommerce_upsell_display' ) ) {
 		$upsells = $limit > 0 ? array_slice( $upsells, 0, $limit ) : $upsells;
 
 		wc_get_template(
-			'single-product/up-sells.php',
+			'woocommerce/single-product/up-sells.php',
 			array(
 				'upsells'        => $upsells,
 
@@ -3907,5 +3914,7 @@ function wc_get_pay_buttons() {
 	}
 	echo '</div>';
 }
+
+
 
 // phpcs:enable Generic.Commenting.Todo.TaskFound

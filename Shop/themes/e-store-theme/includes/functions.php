@@ -67,3 +67,50 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/woocommerce/includes/wc-functions-remove.php';
 	require get_template_directory() . '/woocommerce/includes/wc-functions-cart.php';
 }
+
+///////// Color define
+
+// Define a custom product query filter for sorting by color
+function custom_product_orderby( $args ) {
+    if ( isset( $_GET['color'] ) ) {
+        $args['meta_query'][] = array(
+            'key' => 'pa_color', // Change 'pa_color' to the appropriate attribute slug for color in your WooCommerce setup
+            'value' => sanitize_text_field( $_GET['color'] ),
+            'compare' => 'LIKE'
+        );
+    }
+    return $args;
+}
+add_filter( 'woocommerce_get_catalog_ordering_args', 'custom_product_orderby' );
+
+// Add a custom sorting option for color
+function custom_product_orderby_options_color( $options ) {
+    $options['color'] = 'Sort by Color';
+    return $options;
+}
+add_filter( 'woocommerce_catalog_orderby', 'custom_product_orderby_options_color' );
+
+
+// Add custom sorting options for color
+function add_color_sorting_options( $options ) {
+    $options['color_white'] = 'Sort by White Color';
+    return $options;
+}
+add_filter( 'woocommerce_catalog_orderby', 'add_color_sorting_options' );
+
+// Modify the product query to sort by white color
+function sort_products_by_white_color( $query ) {
+    if ( $query->is_main_query() && is_shop() && isset( $_GET['orderby'] ) && $_GET['orderby'] === 'color_white' ) {
+        $tax_query = array(
+            array(
+                'taxonomy' => 'pa_color', // Change 'pa_color' to the appropriate attribute slug for color in your WooCommerce setup
+                'field'    => 'slug',
+                'terms'    => 'white', // Change 'white' to the appropriate term slug for white color in your WooCommerce setup
+            ),
+        );
+        $query->set( 'tax_query', $tax_query );
+    }
+}
+add_action( 'pre_get_posts', 'sort_products_by_white_color' );
+
+
